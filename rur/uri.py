@@ -2646,12 +2646,7 @@ class dice_utils():
 
 
     def get_part(self, n_snap):
-
         info = self.get_info(n_snap)
-
-        ##-----
-        ##
-        ##-----
         io_dice.ncpu = info['ncpu']
         io_dice.repo = self.repo.ljust(1000)
         io_dice.nsnap = np.int32(n_snap)
@@ -2667,19 +2662,37 @@ class dice_utils():
         io_dice.get_part_deallocate()
 
         return pos, vel, mm, id, tt
+    
+    def get_grav(self, n_snap):
+        info = self.get_info(n_snap)
+        io_dice.ncpu = info['ncpu'] 
+        io_dice.ndim = info['ndim']
+        io_dice.ngridmax = info['ngridmax']
+        io_dice.repo = self.repo.ljust(1000)
+        io_dice.nsnap = np.int32(n_snap)
 
+        io_dice.get_grav()
+        phi = np.array(io_dice.g_phi, dtype='<f8')
+        force = np.array(io_dice.g_force, dtype='<f8')
+
+        io_dice.get_grav_deallocate()
+
+        return phi, force
+    
     def get_info(self, n_snap):
         ##-----
         ## rd info
         ##-----
+        warnings.filterwarnings("ignore", message="Input line 7 contained no data")
+        
         fname = self.repo + "/snapshots/output_%0.5d"%n_snap + "/info_%0.5d"%n_snap + ".txt"
 
         fdata = np.loadtxt(fname, dtype=object, max_rows=18, delimiter = '=')
 
-        info = {'ncpu':0, 'ndim':0, 'levmin':0, 'levmax':0, 'T':0, 'boxlen':0,  
+        info = {'ncpu':0, 'ndim':0, 'levmin':0, 'levmax':0, 'ngridmax':0, 'T':0, 'boxlen':0,  
                 'unit_l':0, 'unit_d':0, 'unit_T2':0, 'nH':0, 'unit_t':0, 'kms':0, 'unit_m':0}
 
-        dtype = [('ncpu', np.int32), ('ndim', np.int32), ('levelmin', np.int32), ('levelmax', np.int32), 
+        dtype = [('ncpu', np.int32), ('ndim', np.int32), ('levelmin', np.int32), ('levelmax', np.int32), ('ngridmax', np.int32), 
                 ('time', np.double), ('boxlen', np.double), ('unit_l', np.double), ('unit_d', np.double), 
                 ('unit_T2', np.double), ('unit_t', np.double), ('kms', np.double), ('unit_m', np.double)]
 

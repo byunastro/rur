@@ -1,0 +1,1689 @@
+
+
+
+Compiling readr
+
+
+
+running build
+running config_cc
+INFO: unifing config_cc, config, build_clib, build_ext, build commands --compiler options
+running config_fc
+INFO: unifing config_fc, config, build_clib, build_ext, build commands --fcompiler options
+running build_src
+INFO: build_src
+INFO: building extension "readr" sources
+INFO: f2py options: []
+INFO: f2py:> /tmp/tmpkbfbr6ir/src.linux-x86_64-3.10/readrmodule.c
+creating /tmp/tmpkbfbr6ir/src.linux-x86_64-3.10
+Reading fortran codes...
+	Reading file 'readr.f90' (format:free)
+Post-processing...
+	Block: readr
+			Block: readr
+In: :readr:readr.f90:readr
+get_useparameters: no module omp_lib info used by readr
+				Block: read_cell
+In: :readr:readr.f90:readr:read_cell
+get_useparameters: no module omp_lib info used by read_cell
+				Block: read_part
+In: :readr:readr.f90:readr:read_part
+get_useparameters: no module omp_lib info used by read_part
+				Block: read_sinkprop
+In: :readr:readr.f90:readr:read_sinkprop
+get_useparameters: no module omp_lib info used by read_sinkprop
+				Block: read_sink
+In: :readr:readr.f90:readr:read_sink
+get_useparameters: no module omp_lib info used by read_sink
+				Block: count_cell
+In: :readr:readr.f90:readr:count_cell
+get_useparameters: no module omp_lib info used by count_cell
+				Block: close
+In: :readr:readr.f90:readr:close
+get_useparameters: no module omp_lib info used by close
+				Block: skip_read
+In: :readr:readr.f90:readr:skip_read
+get_useparameters: no module omp_lib info used by skip_read
+				Block: charind
+In: :readr:readr.f90:readr:charind
+get_useparameters: no module omp_lib info used by charind
+				Block: amr_filename
+In: :readr:readr.f90:readr:amr_filename
+get_useparameters: no module omp_lib info used by amr_filename
+				Block: hydro_filename
+In: :readr:readr.f90:readr:hydro_filename
+get_useparameters: no module omp_lib info used by hydro_filename
+				Block: grav_filename
+In: :readr:readr.f90:readr:grav_filename
+get_useparameters: no module omp_lib info used by grav_filename
+				Block: part_filename
+In: :readr:readr.f90:readr:part_filename
+get_useparameters: no module omp_lib info used by part_filename
+				Block: sinkprop_filename
+In: :readr:readr.f90:readr:sinkprop_filename
+get_useparameters: no module omp_lib info used by sinkprop_filename
+				Block: sink_filename
+In: :readr:readr.f90:readr:sink_filename
+get_useparameters: no module omp_lib info used by sink_filename
+				Block: progress_bar
+In: :readr:readr.f90:readr:progress_bar
+get_useparameters: no module omp_lib info used by progress_bar
+				Block: get_npart
+In: :readr:readr.f90:readr:get_npart
+get_useparameters: no module omp_lib info used by get_npart
+Post-processing (stage 2)...
+	Block: readr
+		Block: unknown_interface
+			Block: readr
+				Block: read_cell
+				Block: read_part
+				Block: read_sinkprop
+				Block: read_sink
+				Block: count_cell
+				Block: close
+				Block: skip_read
+				Block: charind
+				Block: amr_filename
+				Block: hydro_filename
+				Block: grav_filename
+				Block: part_filename
+				Block: sinkprop_filename
+				Block: sink_filename
+				Block: progress_bar
+				Block: get_npart
+Building modules...
+    Building module "readr"...
+		Constructing F90 module support for "readr"...
+		  Variables: real_table integer_table long_table byte_table ncell_table nhvar aexp
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+		Creating wrapper for Fortran subroutine "read_cell"("read_cell")...
+            Constructing wrapper function "readr.read_cell"...
+              read_cell(repo,iout,cpu_list,mode,grav,verbose,nthread)
+		Creating wrapper for Fortran subroutine "read_part"("read_part")...
+            Constructing wrapper function "readr.read_part"...
+              read_part(repo,iout,cpu_list,mode,verbose,longint,nthread)
+            Constructing wrapper function "readr.read_sinkprop"...
+              read_sinkprop(repo,iprop,drag_part,mode)
+            Constructing wrapper function "readr.read_sink"...
+              read_sink(repo,iout,icpu,levelmin,nlevelmax)
+		Creating wrapper for Fortran subroutine "count_cell"("count_cell")...
+            Constructing wrapper function "readr.count_cell"...
+              count_cell(repo,iout,cpu_list,mode)
+            Constructing wrapper function "readr.close"...
+              close()
+            Constructing wrapper function "readr.skip_read"...
+              skip_read(unit,nskip)
+		Creating wrapper for Fortran function "charind"("charind")...
+            Constructing wrapper function "readr.charind"...
+              charind = charind(iout)
+		Creating wrapper for Fortran function "amr_filename"("amr_filename")...
+            Constructing wrapper function "readr.amr_filename"...
+              amr_filename = amr_filename(repo,iout,icpu,mode)
+		Creating wrapper for Fortran function "hydro_filename"("hydro_filename")...
+            Constructing wrapper function "readr.hydro_filename"...
+              hydro_filename = hydro_filename(repo,iout,icpu,mode)
+		Creating wrapper for Fortran function "grav_filename"("grav_filename")...
+            Constructing wrapper function "readr.grav_filename"...
+              grav_filename = grav_filename(repo,iout,icpu,mode)
+		Creating wrapper for Fortran function "part_filename"("part_filename")...
+            Constructing wrapper function "readr.part_filename"...
+              part_filename = part_filename(repo,iout,icpu,mode)
+		Creating wrapper for Fortran function "sinkprop_filename"("sinkprop_filename")...
+            Constructing wrapper function "readr.sinkprop_filename"...
+              sinkprop_filename = sinkprop_filename(repo,iout)
+		Creating wrapper for Fortran function "sink_filename"("sink_filename")...
+            Constructing wrapper function "readr.sink_filename"...
+              sink_filename = sink_filename(repo,iout,icpu)
+            Constructing wrapper function "readr.progress_bar"...
+              progress_bar(iteration,maximum)
+            Constructing wrapper function "readr.get_npart"...
+              npart = get_npart(part_n,file_path)
+    Wrote C/API module "readr" to file "/tmp/tmpkbfbr6ir/src.linux-x86_64-3.10/readrmodule.c"
+    Fortran 90 wrappers are saved to "/tmp/tmpkbfbr6ir/src.linux-x86_64-3.10/readr-f2pywrappers2.f90"
+INFO:   adding '/tmp/tmpkbfbr6ir/src.linux-x86_64-3.10/fortranobject.c' to sources.
+INFO:   adding '/tmp/tmpkbfbr6ir/src.linux-x86_64-3.10' to include_dirs.
+copying /home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/f2py/src/fortranobject.c -> /tmp/tmpkbfbr6ir/src.linux-x86_64-3.10
+copying /home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/f2py/src/fortranobject.h -> /tmp/tmpkbfbr6ir/src.linux-x86_64-3.10
+INFO:   adding '/tmp/tmpkbfbr6ir/src.linux-x86_64-3.10/readr-f2pywrappers2.f90' to sources.
+INFO: build_src: building npy-pkg config files
+running build_ext
+INFO: customize UnixCCompiler
+INFO: customize UnixCCompiler using build_ext
+INFO: get_default_fcompiler: matching types: '['arm', 'gnu95', 'intel', 'lahey', 'pg', 'nv', 'absoft', 'nag', 'vast', 'compaq', 'intele', 'intelem', 'gnu', 'g95', 'pathf95', 'nagfor', 'fujitsu']'
+INFO: customize ArmFlangCompiler
+INFO: Found executable /usr/bin/gfortran
+WARN: Could not locate executable armflang
+INFO: customize Gnu95FCompiler
+INFO: customize Gnu95FCompiler
+INFO: customize Gnu95FCompiler using build_ext
+INFO: building 'readr' extension
+INFO: compiling C sources
+INFO: C compiler: gcc -pthread -B /home/byunkh/.conda/envs/condaenv/compiler_compat -Wno-unused-result -Wsign-compare -DNDEBUG -fwrapv -O2 -Wall -fPIC -O2 -isystem /home/byunkh/.conda/envs/condaenv/include -fPIC -O2 -isystem /home/byunkh/.conda/envs/condaenv/include -fPIC
+
+creating /tmp/tmpkbfbr6ir/tmp
+creating /tmp/tmpkbfbr6ir/tmp/tmpkbfbr6ir
+creating /tmp/tmpkbfbr6ir/tmp/tmpkbfbr6ir/src.linux-x86_64-3.10
+INFO: compile options: '-DNPY_DISABLE_OPTIMIZATION=1 -I/tmp/tmpkbfbr6ir/src.linux-x86_64-3.10 -I/home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/core/include -I/home/byunkh/.conda/envs/condaenv/include/python3.10 -c'
+INFO: gcc: /tmp/tmpkbfbr6ir/src.linux-x86_64-3.10/readrmodule.c
+INFO: gcc: /tmp/tmpkbfbr6ir/src.linux-x86_64-3.10/fortranobject.c
+INFO: compiling Fortran 90 module sources
+INFO: Fortran f77 compiler: gfortran -Wall -g -ffixed-form -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran f90 compiler: gfortran -fopenmp -O3 -x f95-cpp-input -fPIC -O3 -funroll-loops
+Fortran fix compiler: gfortran -Wall -g -ffixed-form -fno-second-underscore -fopenmp -O3 -x f95-cpp-input -fPIC -O3 -funroll-loops
+INFO: compile options: '-I/tmp/tmpkbfbr6ir/src.linux-x86_64-3.10 -I/home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/core/include -I/home/byunkh/.conda/envs/condaenv/include/python3.10 -c'
+extra options: '-J/tmp/tmpkbfbr6ir/ -I/tmp/tmpkbfbr6ir/'
+INFO: gfortran:f90: readr.f90
+INFO: compiling Fortran sources
+INFO: Fortran f77 compiler: gfortran -Wall -g -ffixed-form -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran f90 compiler: gfortran -fopenmp -O3 -x f95-cpp-input -fPIC -O3 -funroll-loops
+Fortran fix compiler: gfortran -Wall -g -ffixed-form -fno-second-underscore -fopenmp -O3 -x f95-cpp-input -fPIC -O3 -funroll-loops
+INFO: compile options: '-I/tmp/tmpkbfbr6ir/src.linux-x86_64-3.10 -I/home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/core/include -I/home/byunkh/.conda/envs/condaenv/include/python3.10 -c'
+extra options: '-J/tmp/tmpkbfbr6ir/ -I/tmp/tmpkbfbr6ir/'
+INFO: gfortran:f90: /tmp/tmpkbfbr6ir/src.linux-x86_64-3.10/readr-f2pywrappers2.f90
+INFO: /usr/bin/gfortran -Wall -g -Wall -g -shared /tmp/tmpkbfbr6ir/tmp/tmpkbfbr6ir/src.linux-x86_64-3.10/readrmodule.o /tmp/tmpkbfbr6ir/tmp/tmpkbfbr6ir/src.linux-x86_64-3.10/fortranobject.o /tmp/tmpkbfbr6ir/readr.o /tmp/tmpkbfbr6ir/tmp/tmpkbfbr6ir/src.linux-x86_64-3.10/readr-f2pywrappers2.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9 -lgomp -lgfortran -o ./readr.cpython-310-x86_64-linux-gnu.so
+Removing build directory /tmp/tmpkbfbr6ir
+
+
+
+Compiling readhtm
+
+
+
+running build
+running config_cc
+INFO: unifing config_cc, config, build_clib, build_ext, build commands --compiler options
+running config_fc
+INFO: unifing config_fc, config, build_clib, build_ext, build commands --fcompiler options
+running build_src
+INFO: build_src
+INFO: building extension "readhtm" sources
+INFO: f2py options: []
+INFO: f2py:> /tmp/tmptlm2hklk/src.linux-x86_64-3.10/readhtmmodule.c
+creating /tmp/tmptlm2hklk/src.linux-x86_64-3.10
+Reading fortran codes...
+	Reading file 'readhtm.f90' (format:free)
+Post-processing...
+	Block: readhtm
+			Block: readhtm
+				Block: read_halo_brick
+				Block: read_halo_member
+				Block: allocate_table
+				Block: close
+				Block: read_tree_brick
+				Block: read_member_brick
+				Block: read_bricks
+				Block: read_single_tree
+				Block: read_halo
+				Block: read_halo_dp
+				Block: read_one
+				Block: skip_read
+				Block: progress_bar
+Post-processing (stage 2)...
+	Block: readhtm
+		Block: unknown_interface
+			Block: readhtm
+				Block: read_halo_brick
+				Block: read_halo_member
+				Block: allocate_table
+				Block: close
+				Block: read_tree_brick
+				Block: read_member_brick
+				Block: read_bricks
+				Block: read_single_tree
+				Block: read_halo
+				Block: read_halo_dp
+				Block: read_one
+				Block: skip_read
+				Block: progress_bar
+Building modules...
+    Building module "readhtm"...
+		Constructing F90 module support for "readhtm"...
+		  Variables: galaxy dp ihalo nhalo npart_tot ipart integer_table real_table real_table_dp part_ids
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+            Constructing wrapper function "readhtm.read_halo_brick"...
+              read_halo_brick(unitfile,aexp,dp)
+            Constructing wrapper function "readhtm.read_halo_member"...
+              read_halo_member(unitfile,dp)
+            Constructing wrapper function "readhtm.allocate_table"...
+              allocate_table(nhalo,nint,nreal,dp)
+            Constructing wrapper function "readhtm.close"...
+              close()
+            Constructing wrapper function "readhtm.read_tree_brick"...
+              read_tree_brick(halofile,dp)
+            Constructing wrapper function "readhtm.read_member_brick"...
+              read_member_brick(halofile,dp)
+            Constructing wrapper function "readhtm.read_bricks"...
+              read_bricks(repository,galaxy_ini,start,end,read_members,dp_ini)
+            Constructing wrapper function "readhtm.read_single_tree"...
+              read_single_tree(treefile,galaxy_ini,dp_ini)
+            Constructing wrapper function "readhtm.read_halo"...
+              read_halo(unitfile,st,aexp,age_univ)
+            Constructing wrapper function "readhtm.read_halo_dp"...
+              read_halo_dp(unitfile,st,aexp,age_univ)
+            Constructing wrapper function "readhtm.read_one"...
+              read_one(repository,galaxy_ini,hmid,nchem,simple)
+            Constructing wrapper function "readhtm.skip_read"...
+              skip_read(unit,nskip)
+            Constructing wrapper function "readhtm.progress_bar"...
+              progress_bar(iteration,maximum)
+    Wrote C/API module "readhtm" to file "/tmp/tmptlm2hklk/src.linux-x86_64-3.10/readhtmmodule.c"
+    Fortran 90 wrappers are saved to "/tmp/tmptlm2hklk/src.linux-x86_64-3.10/readhtm-f2pywrappers2.f90"
+INFO:   adding '/tmp/tmptlm2hklk/src.linux-x86_64-3.10/fortranobject.c' to sources.
+INFO:   adding '/tmp/tmptlm2hklk/src.linux-x86_64-3.10' to include_dirs.
+copying /home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/f2py/src/fortranobject.c -> /tmp/tmptlm2hklk/src.linux-x86_64-3.10
+copying /home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/f2py/src/fortranobject.h -> /tmp/tmptlm2hklk/src.linux-x86_64-3.10
+INFO:   adding '/tmp/tmptlm2hklk/src.linux-x86_64-3.10/readhtm-f2pywrappers2.f90' to sources.
+INFO: build_src: building npy-pkg config files
+running build_ext
+INFO: customize UnixCCompiler
+INFO: customize UnixCCompiler using build_ext
+INFO: get_default_fcompiler: matching types: '['arm', 'gnu95', 'intel', 'lahey', 'pg', 'nv', 'absoft', 'nag', 'vast', 'compaq', 'intele', 'intelem', 'gnu', 'g95', 'pathf95', 'nagfor', 'fujitsu']'
+INFO: customize ArmFlangCompiler
+INFO: Found executable /usr/bin/gfortran
+WARN: Could not locate executable armflang
+INFO: customize Gnu95FCompiler
+INFO: customize Gnu95FCompiler
+INFO: customize Gnu95FCompiler using build_ext
+INFO: building 'readhtm' extension
+INFO: compiling C sources
+INFO: C compiler: gcc -pthread -B /home/byunkh/.conda/envs/condaenv/compiler_compat -Wno-unused-result -Wsign-compare -DNDEBUG -fwrapv -O2 -Wall -fPIC -O2 -isystem /home/byunkh/.conda/envs/condaenv/include -fPIC -O2 -isystem /home/byunkh/.conda/envs/condaenv/include -fPIC
+
+creating /tmp/tmptlm2hklk/tmp
+creating /tmp/tmptlm2hklk/tmp/tmptlm2hklk
+creating /tmp/tmptlm2hklk/tmp/tmptlm2hklk/src.linux-x86_64-3.10
+INFO: compile options: '-DNPY_DISABLE_OPTIMIZATION=1 -I/tmp/tmptlm2hklk/src.linux-x86_64-3.10 -I/home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/core/include -I/home/byunkh/.conda/envs/condaenv/include/python3.10 -c'
+INFO: gcc: /tmp/tmptlm2hklk/src.linux-x86_64-3.10/readhtmmodule.c
+INFO: gcc: /tmp/tmptlm2hklk/src.linux-x86_64-3.10/fortranobject.c
+INFO: compiling Fortran 90 module sources
+INFO: Fortran f77 compiler: gfortran -Wall -g -ffixed-form -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran f90 compiler: gfortran -fopenmp -O3 -x f95-cpp-input -fPIC -O3 -funroll-loops
+Fortran fix compiler: gfortran -Wall -g -ffixed-form -fno-second-underscore -fopenmp -O3 -x f95-cpp-input -fPIC -O3 -funroll-loops
+INFO: compile options: '-I/tmp/tmptlm2hklk/src.linux-x86_64-3.10 -I/home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/core/include -I/home/byunkh/.conda/envs/condaenv/include/python3.10 -c'
+extra options: '-J/tmp/tmptlm2hklk/ -I/tmp/tmptlm2hklk/'
+INFO: gfortran:f90: readhtm.f90
+INFO: compiling Fortran sources
+INFO: Fortran f77 compiler: gfortran -Wall -g -ffixed-form -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran f90 compiler: gfortran -fopenmp -O3 -x f95-cpp-input -fPIC -O3 -funroll-loops
+Fortran fix compiler: gfortran -Wall -g -ffixed-form -fno-second-underscore -fopenmp -O3 -x f95-cpp-input -fPIC -O3 -funroll-loops
+INFO: compile options: '-I/tmp/tmptlm2hklk/src.linux-x86_64-3.10 -I/home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/core/include -I/home/byunkh/.conda/envs/condaenv/include/python3.10 -c'
+extra options: '-J/tmp/tmptlm2hklk/ -I/tmp/tmptlm2hklk/'
+INFO: gfortran:f90: /tmp/tmptlm2hklk/src.linux-x86_64-3.10/readhtm-f2pywrappers2.f90
+INFO: /usr/bin/gfortran -Wall -g -Wall -g -shared /tmp/tmptlm2hklk/tmp/tmptlm2hklk/src.linux-x86_64-3.10/readhtmmodule.o /tmp/tmptlm2hklk/tmp/tmptlm2hklk/src.linux-x86_64-3.10/fortranobject.o /tmp/tmptlm2hklk/readhtm.o /tmp/tmptlm2hklk/tmp/tmptlm2hklk/src.linux-x86_64-3.10/readhtm-f2pywrappers2.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9 -lgomp -lgfortran -o ./readhtm.cpython-310-x86_64-linux-gnu.so
+Removing build directory /tmp/tmptlm2hklk
+
+
+
+Compiling hilbert3d
+
+
+
+running build
+running config_cc
+INFO: unifing config_cc, config, build_clib, build_ext, build commands --compiler options
+running config_fc
+INFO: unifing config_fc, config, build_clib, build_ext, build commands --fcompiler options
+running build_src
+INFO: build_src
+INFO: building extension "hilbert3d" sources
+INFO: f2py options: []
+INFO: f2py:> /tmp/tmpahpxcvt7/src.linux-x86_64-3.10/hilbert3dmodule.c
+creating /tmp/tmpahpxcvt7/src.linux-x86_64-3.10
+Reading fortran codes...
+	Reading file 'hilbert3d.f90' (format:free)
+Post-processing...
+	Block: hilbert3d
+			Block: hilbert3d
+Post-processing (stage 2)...
+Building modules...
+    Building module "hilbert3d"...
+    Generating possibly empty wrappers"
+    Maybe empty "hilbert3d-f2pywrappers.f"
+        Constructing wrapper function "hilbert3d"...
+          order = hilbert3d(x,y,z,bit_length,[npoint])
+    Wrote C/API module "hilbert3d" to file "/tmp/tmpahpxcvt7/src.linux-x86_64-3.10/hilbert3dmodule.c"
+INFO:   adding '/tmp/tmpahpxcvt7/src.linux-x86_64-3.10/fortranobject.c' to sources.
+INFO:   adding '/tmp/tmpahpxcvt7/src.linux-x86_64-3.10' to include_dirs.
+copying /home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/f2py/src/fortranobject.c -> /tmp/tmpahpxcvt7/src.linux-x86_64-3.10
+copying /home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/f2py/src/fortranobject.h -> /tmp/tmpahpxcvt7/src.linux-x86_64-3.10
+INFO:   adding '/tmp/tmpahpxcvt7/src.linux-x86_64-3.10/hilbert3d-f2pywrappers.f' to sources.
+INFO: build_src: building npy-pkg config files
+running build_ext
+INFO: customize UnixCCompiler
+INFO: customize UnixCCompiler using build_ext
+INFO: get_default_fcompiler: matching types: '['arm', 'gnu95', 'intel', 'lahey', 'pg', 'nv', 'absoft', 'nag', 'vast', 'compaq', 'intele', 'intelem', 'gnu', 'g95', 'pathf95', 'nagfor', 'fujitsu']'
+INFO: customize ArmFlangCompiler
+INFO: Found executable /usr/bin/gfortran
+WARN: Could not locate executable armflang
+INFO: customize Gnu95FCompiler
+INFO: customize Gnu95FCompiler
+INFO: customize Gnu95FCompiler using build_ext
+INFO: building 'hilbert3d' extension
+INFO: compiling C sources
+INFO: C compiler: gcc -pthread -B /home/byunkh/.conda/envs/condaenv/compiler_compat -Wno-unused-result -Wsign-compare -DNDEBUG -fwrapv -O2 -Wall -fPIC -O2 -isystem /home/byunkh/.conda/envs/condaenv/include -fPIC -O2 -isystem /home/byunkh/.conda/envs/condaenv/include -fPIC
+
+creating /tmp/tmpahpxcvt7/tmp
+creating /tmp/tmpahpxcvt7/tmp/tmpahpxcvt7
+creating /tmp/tmpahpxcvt7/tmp/tmpahpxcvt7/src.linux-x86_64-3.10
+INFO: compile options: '-DNPY_DISABLE_OPTIMIZATION=1 -I/tmp/tmpahpxcvt7/src.linux-x86_64-3.10 -I/home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/core/include -I/home/byunkh/.conda/envs/condaenv/include/python3.10 -c'
+INFO: gcc: /tmp/tmpahpxcvt7/src.linux-x86_64-3.10/hilbert3dmodule.c
+INFO: gcc: /tmp/tmpahpxcvt7/src.linux-x86_64-3.10/fortranobject.c
+INFO: compiling Fortran sources
+INFO: Fortran f77 compiler: gfortran -Wall -g -ffixed-form -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran f90 compiler: gfortran -fopenmp -O3 -x f95-cpp-input -fPIC -O3 -funroll-loops
+Fortran fix compiler: gfortran -Wall -g -ffixed-form -fno-second-underscore -fopenmp -O3 -x f95-cpp-input -fPIC -O3 -funroll-loops
+INFO: compile options: '-I/tmp/tmpahpxcvt7/src.linux-x86_64-3.10 -I/home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/core/include -I/home/byunkh/.conda/envs/condaenv/include/python3.10 -c'
+INFO: gfortran:f90: hilbert3d.f90
+INFO: gfortran:f77: /tmp/tmpahpxcvt7/src.linux-x86_64-3.10/hilbert3d-f2pywrappers.f
+INFO: /usr/bin/gfortran -Wall -g -Wall -g -shared /tmp/tmpahpxcvt7/tmp/tmpahpxcvt7/src.linux-x86_64-3.10/hilbert3dmodule.o /tmp/tmpahpxcvt7/tmp/tmpahpxcvt7/src.linux-x86_64-3.10/fortranobject.o /tmp/tmpahpxcvt7/hilbert3d.o /tmp/tmpahpxcvt7/tmp/tmpahpxcvt7/src.linux-x86_64-3.10/hilbert3d-f2pywrappers.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9 -lgomp -lgfortran -o ./hilbert3d.cpython-310-x86_64-linux-gnu.so
+Removing build directory /tmp/tmpahpxcvt7
+
+
+
+Compiling io_ramses
+
+
+
+running build
+running config_cc
+INFO: unifing config_cc, config, build_clib, build_ext, build commands --compiler options
+running config_fc
+INFO: unifing config_fc, config, build_clib, build_ext, build commands --fcompiler options
+running build_src
+INFO: build_src
+INFO: building extension "io_ramses" sources
+INFO: f2py options: []
+INFO: f2py:> /tmp/tmpvpl2i0qm/src.linux-x86_64-3.10/io_ramsesmodule.c
+creating /tmp/tmpvpl2i0qm/src.linux-x86_64-3.10
+Reading fortran codes...
+	Reading file 'io_ramses.f90' (format:free)
+Post-processing...
+	Block: io_ramses
+			Block: io_ramses
+				Block: read_grid_header
+				Block: read_cell_single
+				Block: read_grid_single
+				Block: write_ripses
+				Block: read_ripses_single
+				Block: read_ripses_cell
+				Block: close
+				Block: close_grid
+				Block: close_cell
+				Block: skip_read
+				Block: charind
+				Block: amr_filename
+				Block: cell_filename
+				Block: grid_filename
+				Block: hydro_filename
+Post-processing (stage 2)...
+	Block: io_ramses
+		Block: unknown_interface
+			Block: io_ramses
+				Block: read_grid_header
+				Block: read_cell_single
+				Block: read_grid_single
+				Block: write_ripses
+				Block: read_ripses_single
+				Block: read_ripses_cell
+				Block: close
+				Block: close_grid
+				Block: close_cell
+				Block: skip_read
+				Block: charind
+				Block: amr_filename
+				Block: cell_filename
+				Block: grid_filename
+				Block: hydro_filename
+Building modules...
+    Building module "io_ramses"...
+		Constructing F90 module support for "io_ramses"...
+		  Variables: ncpu ndim nx ny nz nlevelmax ngridmax nboundary ngrid_current noutput iout1 ifout nstep nstep_coarse tout aout dtold dtnew boxlen t einit mass_tot_0 rho_tot omega_m omega_l omega_k omega_b h0 aexp_ini boxlen_ini aexp hexp aexp_old epot_tot_int epot_tot_old mass_sph headl taill numbl numbtot headf tailf numbf used_mem used_mem_tot ordering bound_keyl bound_key nvar gamma twotondim skip_amr skip_hydro half ncell_tot ngrid_tot ngrid_act ngrid_rec nleaf xc uc lvlc cpuc xg ug refg lvlg xp vp idp idpl fam tag mp tp zp quadhilbert star family metal longint
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+            Constructing wrapper function "io_ramses.read_grid_header"...
+              read_grid_header(repo,iout,icpu)
+            Constructing wrapper function "io_ramses.read_cell_single"...
+              read_cell_single(repo,iout,icpu)
+            Constructing wrapper function "io_ramses.read_grid_single"...
+              read_grid_single(repo,iout,icpu)
+            Constructing wrapper function "io_ramses.write_ripses"...
+              write_ripses(repo,iout,icpu)
+            Constructing wrapper function "io_ramses.read_ripses_single"...
+              read_ripses_single(repo,iout,icpu)
+		Creating wrapper for Fortran subroutine "read_ripses_cell"("read_ripses_cell")...
+            Constructing wrapper function "io_ramses.read_ripses_cell"...
+              read_ripses_cell(repo,iout,cpu_list)
+            Constructing wrapper function "io_ramses.close"...
+              close()
+            Constructing wrapper function "io_ramses.close_grid"...
+              close_grid()
+            Constructing wrapper function "io_ramses.close_cell"...
+              close_cell()
+            Constructing wrapper function "io_ramses.skip_read"...
+              skip_read(unit,nskip)
+		Creating wrapper for Fortran function "charind"("charind")...
+            Constructing wrapper function "io_ramses.charind"...
+              charind = charind(iout)
+		Creating wrapper for Fortran function "amr_filename"("amr_filename")...
+            Constructing wrapper function "io_ramses.amr_filename"...
+              amr_filename = amr_filename(repo,iout,icpu)
+		Creating wrapper for Fortran function "cell_filename"("cell_filename")...
+            Constructing wrapper function "io_ramses.cell_filename"...
+              cell_filename = cell_filename(repo,iout,icpu)
+		Creating wrapper for Fortran function "grid_filename"("grid_filename")...
+            Constructing wrapper function "io_ramses.grid_filename"...
+              grid_filename = grid_filename(repo,iout,icpu)
+		Creating wrapper for Fortran function "hydro_filename"("hydro_filename")...
+            Constructing wrapper function "io_ramses.hydro_filename"...
+              hydro_filename = hydro_filename(repo,iout,icpu)
+    Wrote C/API module "io_ramses" to file "/tmp/tmpvpl2i0qm/src.linux-x86_64-3.10/io_ramsesmodule.c"
+    Fortran 90 wrappers are saved to "/tmp/tmpvpl2i0qm/src.linux-x86_64-3.10/io_ramses-f2pywrappers2.f90"
+INFO:   adding '/tmp/tmpvpl2i0qm/src.linux-x86_64-3.10/fortranobject.c' to sources.
+INFO:   adding '/tmp/tmpvpl2i0qm/src.linux-x86_64-3.10' to include_dirs.
+copying /home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/f2py/src/fortranobject.c -> /tmp/tmpvpl2i0qm/src.linux-x86_64-3.10
+copying /home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/f2py/src/fortranobject.h -> /tmp/tmpvpl2i0qm/src.linux-x86_64-3.10
+INFO:   adding '/tmp/tmpvpl2i0qm/src.linux-x86_64-3.10/io_ramses-f2pywrappers2.f90' to sources.
+INFO: build_src: building npy-pkg config files
+running build_ext
+INFO: customize UnixCCompiler
+INFO: customize UnixCCompiler using build_ext
+INFO: get_default_fcompiler: matching types: '['arm', 'gnu95', 'intel', 'lahey', 'pg', 'nv', 'absoft', 'nag', 'vast', 'compaq', 'intele', 'intelem', 'gnu', 'g95', 'pathf95', 'nagfor', 'fujitsu']'
+INFO: customize ArmFlangCompiler
+INFO: Found executable /usr/bin/gfortran
+WARN: Could not locate executable armflang
+INFO: customize Gnu95FCompiler
+INFO: customize Gnu95FCompiler
+INFO: customize Gnu95FCompiler using build_ext
+INFO: building 'io_ramses' extension
+INFO: compiling C sources
+INFO: C compiler: gcc -pthread -B /home/byunkh/.conda/envs/condaenv/compiler_compat -Wno-unused-result -Wsign-compare -DNDEBUG -fwrapv -O2 -Wall -fPIC -O2 -isystem /home/byunkh/.conda/envs/condaenv/include -fPIC -O2 -isystem /home/byunkh/.conda/envs/condaenv/include -fPIC
+
+creating /tmp/tmpvpl2i0qm/tmp
+creating /tmp/tmpvpl2i0qm/tmp/tmpvpl2i0qm
+creating /tmp/tmpvpl2i0qm/tmp/tmpvpl2i0qm/src.linux-x86_64-3.10
+INFO: compile options: '-DNPY_DISABLE_OPTIMIZATION=1 -I/tmp/tmpvpl2i0qm/src.linux-x86_64-3.10 -I/home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/core/include -I/home/byunkh/.conda/envs/condaenv/include/python3.10 -c'
+INFO: gcc: /tmp/tmpvpl2i0qm/src.linux-x86_64-3.10/io_ramsesmodule.c
+INFO: gcc: /tmp/tmpvpl2i0qm/src.linux-x86_64-3.10/fortranobject.c
+INFO: compiling Fortran 90 module sources
+INFO: Fortran f77 compiler: gfortran -Wall -g -ffixed-form -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran f90 compiler: gfortran -fopenmp -O3 -x f95-cpp-input -fPIC -O3 -funroll-loops
+Fortran fix compiler: gfortran -Wall -g -ffixed-form -fno-second-underscore -fopenmp -O3 -x f95-cpp-input -fPIC -O3 -funroll-loops
+INFO: compile options: '-I/tmp/tmpvpl2i0qm/src.linux-x86_64-3.10 -I/home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/core/include -I/home/byunkh/.conda/envs/condaenv/include/python3.10 -c'
+extra options: '-J/tmp/tmpvpl2i0qm/ -I/tmp/tmpvpl2i0qm/'
+INFO: gfortran:f90: io_ramses.f90
+INFO: compiling Fortran sources
+INFO: Fortran f77 compiler: gfortran -Wall -g -ffixed-form -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran f90 compiler: gfortran -fopenmp -O3 -x f95-cpp-input -fPIC -O3 -funroll-loops
+Fortran fix compiler: gfortran -Wall -g -ffixed-form -fno-second-underscore -fopenmp -O3 -x f95-cpp-input -fPIC -O3 -funroll-loops
+INFO: compile options: '-I/tmp/tmpvpl2i0qm/src.linux-x86_64-3.10 -I/home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/core/include -I/home/byunkh/.conda/envs/condaenv/include/python3.10 -c'
+extra options: '-J/tmp/tmpvpl2i0qm/ -I/tmp/tmpvpl2i0qm/'
+INFO: gfortran:f90: /tmp/tmpvpl2i0qm/src.linux-x86_64-3.10/io_ramses-f2pywrappers2.f90
+INFO: /usr/bin/gfortran -Wall -g -Wall -g -shared /tmp/tmpvpl2i0qm/tmp/tmpvpl2i0qm/src.linux-x86_64-3.10/io_ramsesmodule.o /tmp/tmpvpl2i0qm/tmp/tmpvpl2i0qm/src.linux-x86_64-3.10/fortranobject.o /tmp/tmpvpl2i0qm/io_ramses.o /tmp/tmpvpl2i0qm/tmp/tmpvpl2i0qm/src.linux-x86_64-3.10/io_ramses-f2pywrappers2.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9 -lgomp -lgfortran -o ./io_ramses.cpython-310-x86_64-linux-gnu.so
+Removing build directory /tmp/tmpvpl2i0qm
+
+
+
+Compiling io_dice
+
+
+
+Unknown vendor: "gfortran"
+running build
+running config_cc
+INFO: unifing config_cc, config, build_clib, build_ext, build commands --compiler options
+running config_fc
+INFO: unifing config_fc, config, build_clib, build_ext, build commands --fcompiler options
+running build_src
+INFO: build_src
+INFO: building extension "io_dice" sources
+INFO: f2py options: []
+INFO: f2py:> /tmp/tmpg066rl_u/src.linux-x86_64-3.10/io_dicemodule.c
+creating /tmp/tmpg066rl_u/src.linux-x86_64-3.10
+Reading fortran codes...
+	Reading file 'io_dice.f90' (format:free)
+htype <re.Match object; span=(0, 5), match='htype'>
+Post-processing...
+	Block: io_dice
+			Block: io_dice
+				Block: htype
+				Block: read_gadget
+				Block: read_gadget_allocate
+				Block: read_gadget_deallocate
+				Block: get_part
+				Block: get_part_allocate
+				Block: get_part_deallocate
+				Block: get_part_tot
+				Block: get_grav_allocate
+				Block: get_grav_deallocate
+				Block: get_grav_tot
+				Block: get_grav
+				Block: skip_read
+Post-processing (stage 2)...
+	Block: io_dice
+		Block: unknown_interface
+			Block: io_dice
+				Block: htype
+				Block: read_gadget
+				Block: read_gadget_allocate
+				Block: read_gadget_deallocate
+				Block: get_part
+				Block: get_part_allocate
+				Block: get_part_deallocate
+				Block: get_part_tot
+				Block: get_grav_allocate
+				Block: get_grav_deallocate
+				Block: get_grav_tot
+				Block: get_grav
+				Block: skip_read
+Building modules...
+    Building module "io_dice"...
+		Constructing F90 module support for "io_dice"...
+		  Variables: pos vel mm id type_bn ncpu nsnap npart_tot ncell_tot ndim ngridmax repo g_pos g_vel g_force g_mm g_phi g_id g_type
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+f90mod_rules.buildhooks: skipping type htype
+            Constructing wrapper function "io_dice.read_gadget"...
+              read_gadget(fname)
+            Constructing wrapper function "io_dice.read_gadget_allocate"...
+              read_gadget_allocate(np)
+            Constructing wrapper function "io_dice.read_gadget_deallocate"...
+              read_gadget_deallocate()
+            Constructing wrapper function "io_dice.get_part"...
+              get_part()
+            Constructing wrapper function "io_dice.get_part_allocate"...
+              get_part_allocate()
+            Constructing wrapper function "io_dice.get_part_deallocate"...
+              get_part_deallocate()
+            Constructing wrapper function "io_dice.get_part_tot"...
+              get_part_tot()
+            Constructing wrapper function "io_dice.get_grav_allocate"...
+              get_grav_allocate()
+            Constructing wrapper function "io_dice.get_grav_deallocate"...
+              get_grav_deallocate()
+            Constructing wrapper function "io_dice.get_grav_tot"...
+              get_grav_tot()
+            Constructing wrapper function "io_dice.get_grav"...
+              get_grav()
+            Constructing wrapper function "io_dice.skip_read"...
+              skip_read(unit,nskip)
+    Wrote C/API module "io_dice" to file "/tmp/tmpg066rl_u/src.linux-x86_64-3.10/io_dicemodule.c"
+    Fortran 90 wrappers are saved to "/tmp/tmpg066rl_u/src.linux-x86_64-3.10/io_dice-f2pywrappers2.f90"
+INFO:   adding '/tmp/tmpg066rl_u/src.linux-x86_64-3.10/fortranobject.c' to sources.
+INFO:   adding '/tmp/tmpg066rl_u/src.linux-x86_64-3.10' to include_dirs.
+copying /home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/f2py/src/fortranobject.c -> /tmp/tmpg066rl_u/src.linux-x86_64-3.10
+copying /home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/f2py/src/fortranobject.h -> /tmp/tmpg066rl_u/src.linux-x86_64-3.10
+INFO:   adding '/tmp/tmpg066rl_u/src.linux-x86_64-3.10/io_dice-f2pywrappers2.f90' to sources.
+INFO: build_src: building npy-pkg config files
+running build_ext
+INFO: customize UnixCCompiler
+INFO: customize UnixCCompiler using build_ext
+INFO: customize Gnu95FCompiler
+INFO: Found executable /usr/bin/gfortran
+INFO: customize Gnu95FCompiler using build_ext
+INFO: building 'io_dice' extension
+INFO: compiling C sources
+INFO: C compiler: gcc -pthread -B /home/byunkh/.conda/envs/condaenv/compiler_compat -Wno-unused-result -Wsign-compare -DNDEBUG -fwrapv -O2 -Wall -fPIC -O2 -isystem /home/byunkh/.conda/envs/condaenv/include -fPIC -O2 -isystem /home/byunkh/.conda/envs/condaenv/include -fPIC
+
+creating /tmp/tmpg066rl_u/tmp
+creating /tmp/tmpg066rl_u/tmp/tmpg066rl_u
+creating /tmp/tmpg066rl_u/tmp/tmpg066rl_u/src.linux-x86_64-3.10
+INFO: compile options: '-DNPY_DISABLE_OPTIMIZATION=1 -I/tmp/tmpg066rl_u/src.linux-x86_64-3.10 -I/home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/core/include -I/home/byunkh/.conda/envs/condaenv/include/python3.10 -c'
+INFO: gcc: /tmp/tmpg066rl_u/src.linux-x86_64-3.10/io_dicemodule.c
+INFO: gcc: /tmp/tmpg066rl_u/src.linux-x86_64-3.10/fortranobject.c
+INFO: compiling Fortran 90 module sources
+INFO: Fortran f77 compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran f90 compiler: /usr/bin/gfortran -fopenmp -fPIC -O3 -funroll-loops
+Fortran fix compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fopenmp -fPIC -O3 -funroll-loops
+INFO: compile options: '-I/tmp/tmpg066rl_u/src.linux-x86_64-3.10 -I/home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/core/include -I/home/byunkh/.conda/envs/condaenv/include/python3.10 -c'
+extra options: '-J/tmp/tmpg066rl_u/ -I/tmp/tmpg066rl_u/'
+INFO: gfortran:f90: io_dice.f90
+INFO: compiling Fortran sources
+INFO: Fortran f77 compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran f90 compiler: /usr/bin/gfortran -fopenmp -fPIC -O3 -funroll-loops
+Fortran fix compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fopenmp -fPIC -O3 -funroll-loops
+INFO: compile options: '-I/tmp/tmpg066rl_u/src.linux-x86_64-3.10 -I/home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/core/include -I/home/byunkh/.conda/envs/condaenv/include/python3.10 -c'
+extra options: '-J/tmp/tmpg066rl_u/ -I/tmp/tmpg066rl_u/'
+INFO: gfortran:f90: /tmp/tmpg066rl_u/src.linux-x86_64-3.10/io_dice-f2pywrappers2.f90
+INFO: /usr/bin/gfortran -Wall -g -Wall -g -shared /tmp/tmpg066rl_u/tmp/tmpg066rl_u/src.linux-x86_64-3.10/io_dicemodule.o /tmp/tmpg066rl_u/tmp/tmpg066rl_u/src.linux-x86_64-3.10/fortranobject.o /tmp/tmpg066rl_u/io_dice.o /tmp/tmpg066rl_u/tmp/tmpg066rl_u/src.linux-x86_64-3.10/io_dice-f2pywrappers2.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9 -lgomp -lgfortran -o ./io_dice.cpython-310-x86_64-linux-gnu.so
+Removing build directory /tmp/tmpg066rl_u
+
+
+
+Compiling find_domain_py
+
+
+
+Unknown vendor: "gfortran"
+running build
+running config_cc
+INFO: unifing config_cc, config, build_clib, build_ext, build commands --compiler options
+running config_fc
+INFO: unifing config_fc, config, build_clib, build_ext, build commands --fcompiler options
+running build_src
+INFO: build_src
+INFO: building extension "find_domain_py" sources
+INFO: f2py options: []
+INFO: f2py:> /tmp/tmp7msy0yp6/src.linux-x86_64-3.10/find_domain_pymodule.c
+creating /tmp/tmp7msy0yp6/src.linux-x86_64-3.10
+Reading fortran codes...
+	Reading file 'find_domain_py.f90' (format:free)
+Post-processing...
+	Block: find_domain_py
+			Block: find_domain_py
+				Block: find_domain
+In: :find_domain_py:find_domain_py.f90:find_domain_py:find_domain
+get_useparameters: no module omp_lib info used by find_domain
+				Block: find_cpu
+				Block: find_dom
+				Block: find_hilbert
+				Block: find_domain_free
+Post-processing (stage 2)...
+	Block: find_domain_py
+		Block: unknown_interface
+			Block: find_domain_py
+				Block: find_domain
+				Block: find_cpu
+				Block: find_dom
+				Block: find_hilbert
+				Block: find_domain_free
+Building modules...
+    Building module "find_domain_py"...
+		Constructing F90 module support for "find_domain_py"...
+		  Variables: dom_list
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+		Creating wrapper for Fortran subroutine "find_domain"("find_domain")...
+            Constructing wrapper function "find_domain_py.find_domain"...
+              find_domain(xc,yc,zc,rr,hindex,larr,darr)
+            Constructing wrapper function "find_domain_py.find_cpu"...
+              find_cpu(bnd,cpu,n_dom,hindex,cpu_list,ncpu_read,[n_mpi])
+            Constructing wrapper function "find_domain_py.find_dom"...
+              find_dom(xc,yc,zc,rr,levmax,ndim,bnd,ndom,ind_dom,bit_length,rfact,dkey)
+            Constructing wrapper function "find_domain_py.find_hilbert"...
+              order = find_hilbert(x,y,z,bit_length,[npoint])
+            Constructing wrapper function "find_domain_py.find_domain_free"...
+              find_domain_free()
+    Wrote C/API module "find_domain_py" to file "/tmp/tmp7msy0yp6/src.linux-x86_64-3.10/find_domain_pymodule.c"
+    Fortran 90 wrappers are saved to "/tmp/tmp7msy0yp6/src.linux-x86_64-3.10/find_domain_py-f2pywrappers2.f90"
+INFO:   adding '/tmp/tmp7msy0yp6/src.linux-x86_64-3.10/fortranobject.c' to sources.
+INFO:   adding '/tmp/tmp7msy0yp6/src.linux-x86_64-3.10' to include_dirs.
+copying /home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/f2py/src/fortranobject.c -> /tmp/tmp7msy0yp6/src.linux-x86_64-3.10
+copying /home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/f2py/src/fortranobject.h -> /tmp/tmp7msy0yp6/src.linux-x86_64-3.10
+INFO:   adding '/tmp/tmp7msy0yp6/src.linux-x86_64-3.10/find_domain_py-f2pywrappers2.f90' to sources.
+INFO: build_src: building npy-pkg config files
+running build_ext
+INFO: customize UnixCCompiler
+INFO: customize UnixCCompiler using build_ext
+INFO: customize Gnu95FCompiler
+INFO: Found executable /usr/bin/gfortran
+INFO: customize Gnu95FCompiler using build_ext
+INFO: building 'find_domain_py' extension
+INFO: compiling C sources
+INFO: C compiler: gcc -pthread -B /home/byunkh/.conda/envs/condaenv/compiler_compat -Wno-unused-result -Wsign-compare -DNDEBUG -fwrapv -O2 -Wall -fPIC -O2 -isystem /home/byunkh/.conda/envs/condaenv/include -fPIC -O2 -isystem /home/byunkh/.conda/envs/condaenv/include -fPIC
+
+creating /tmp/tmp7msy0yp6/tmp
+creating /tmp/tmp7msy0yp6/tmp/tmp7msy0yp6
+creating /tmp/tmp7msy0yp6/tmp/tmp7msy0yp6/src.linux-x86_64-3.10
+INFO: compile options: '-DNPY_DISABLE_OPTIMIZATION=1 -I/tmp/tmp7msy0yp6/src.linux-x86_64-3.10 -I/home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/core/include -I/home/byunkh/.conda/envs/condaenv/include/python3.10 -c'
+INFO: gcc: /tmp/tmp7msy0yp6/src.linux-x86_64-3.10/find_domain_pymodule.c
+INFO: gcc: /tmp/tmp7msy0yp6/src.linux-x86_64-3.10/fortranobject.c
+INFO: compiling Fortran 90 module sources
+INFO: Fortran f77 compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran f90 compiler: /usr/bin/gfortran -fopenmp -fPIC -O3 -funroll-loops
+Fortran fix compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fopenmp -fPIC -O3 -funroll-loops
+INFO: compile options: '-I/tmp/tmp7msy0yp6/src.linux-x86_64-3.10 -I/home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/core/include -I/home/byunkh/.conda/envs/condaenv/include/python3.10 -c'
+extra options: '-J/tmp/tmp7msy0yp6/ -I/tmp/tmp7msy0yp6/'
+INFO: gfortran:f90: find_domain_py.f90
+INFO: compiling Fortran sources
+INFO: Fortran f77 compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran f90 compiler: /usr/bin/gfortran -fopenmp -fPIC -O3 -funroll-loops
+Fortran fix compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fopenmp -fPIC -O3 -funroll-loops
+INFO: compile options: '-I/tmp/tmp7msy0yp6/src.linux-x86_64-3.10 -I/home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/core/include -I/home/byunkh/.conda/envs/condaenv/include/python3.10 -c'
+extra options: '-J/tmp/tmp7msy0yp6/ -I/tmp/tmp7msy0yp6/'
+INFO: gfortran:f90: /tmp/tmp7msy0yp6/src.linux-x86_64-3.10/find_domain_py-f2pywrappers2.f90
+INFO: /usr/bin/gfortran -Wall -g -Wall -g -shared /tmp/tmp7msy0yp6/tmp/tmp7msy0yp6/src.linux-x86_64-3.10/find_domain_pymodule.o /tmp/tmp7msy0yp6/tmp/tmp7msy0yp6/src.linux-x86_64-3.10/fortranobject.o /tmp/tmp7msy0yp6/find_domain_py.o /tmp/tmp7msy0yp6/tmp/tmp7msy0yp6/src.linux-x86_64-3.10/find_domain_py-f2pywrappers2.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9 -lgomp -lgfortran -o ./find_domain_py.cpython-310-x86_64-linux-gnu.so
+Removing build directory /tmp/tmp7msy0yp6
+
+
+
+Compiling get_flux_py
+
+
+
+Unknown vendor: "gfortran"
+running build
+running config_cc
+INFO: unifing config_cc, config, build_clib, build_ext, build commands --compiler options
+running config_fc
+INFO: unifing config_fc, config, build_clib, build_ext, build commands --fcompiler options
+running build_src
+INFO: build_src
+INFO: building extension "get_flux_py" sources
+INFO: f2py options: []
+INFO: f2py:> /tmp/tmpynz95jva/src.linux-x86_64-3.10/get_flux_pymodule.c
+creating /tmp/tmpynz95jva/src.linux-x86_64-3.10
+Reading fortran codes...
+	Reading file 'get_flux_py.f90' (format:free)
+Post-processing...
+	Block: get_flux_py
+			Block: get_flux_py
+				Block: get_flux
+In: :get_flux_py:get_flux_py.f90:get_flux_py:get_flux
+get_useparameters: no module omp_lib info used by get_flux
+				Block: flux_integration
+				Block: br_interpolation
+				Block: ext_ind2
+				Block: tr_interpolation
+				Block: search_ind
+				Block: linear_int
+				Block: ext_ind
+				Block: get_flux_free
+Post-processing (stage 2)...
+	Block: get_flux_py
+		Block: unknown_interface
+			Block: get_flux_py
+				Block: get_flux
+				Block: flux_integration
+				Block: br_interpolation
+				Block: ext_ind2
+				Block: tr_interpolation
+				Block: search_ind
+				Block: linear_int
+				Block: ext_ind
+				Block: get_flux_free
+Building modules...
+    Building module "get_flux_py"...
+		Constructing F90 module support for "get_flux_py"...
+		  Variables: flux
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+		Creating wrapper for Fortran subroutine "get_flux"("get_flux")...
+            Constructing wrapper function "get_flux_py.get_flux"...
+              get_flux(age,metal,mass,ssp_age,ssp_metal,ssp_wave,ssp_flux,tr_wave,tr_curve,int_set,dbl_set)
+		Creating wrapper for Fortran function "flux_integration"("flux_integration")...
+            Constructing wrapper function "get_flux_py.flux_integration"...
+              flux_int = flux_integration(y,dx,[n])
+            Constructing wrapper function "get_flux_py.br_interpolation"...
+              br_interpolation(bi_int,ind_z,n_met,frac)
+		Creating wrapper for Fortran function "ext_ind2"("ext_ind2")...
+            Constructing wrapper function "get_flux_py.ext_ind2"...
+              ext_ind = ext_ind2(s_metal,metal,[n_ssp])
+            Constructing wrapper function "get_flux_py.tr_interpolation"...
+              tr_interpolation(ssp_tr,ssp_lam,tr_lam,tr_tr,[n_ssp,n_tr])
+		Creating wrapper for Fortran function "search_ind"("search_ind")...
+            Constructing wrapper function "get_flux_py.search_ind"...
+              ind = search_ind(tmp,x0,[n_tmp])
+		Creating wrapper for Fortran function "linear_int"("linear_int")...
+            Constructing wrapper function "get_flux_py.linear_int"...
+              ind = linear_int(x1,x2,y1,y2,x0)
+            Constructing wrapper function "get_flux_py.ext_ind"...
+              ext_ind(ssp_wave,tr_wave,ind_a,ind_z,[n_wave,n_tr])
+            Constructing wrapper function "get_flux_py.get_flux_free"...
+              get_flux_free()
+    Wrote C/API module "get_flux_py" to file "/tmp/tmpynz95jva/src.linux-x86_64-3.10/get_flux_pymodule.c"
+    Fortran 90 wrappers are saved to "/tmp/tmpynz95jva/src.linux-x86_64-3.10/get_flux_py-f2pywrappers2.f90"
+INFO:   adding '/tmp/tmpynz95jva/src.linux-x86_64-3.10/fortranobject.c' to sources.
+INFO:   adding '/tmp/tmpynz95jva/src.linux-x86_64-3.10' to include_dirs.
+copying /home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/f2py/src/fortranobject.c -> /tmp/tmpynz95jva/src.linux-x86_64-3.10
+copying /home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/f2py/src/fortranobject.h -> /tmp/tmpynz95jva/src.linux-x86_64-3.10
+INFO:   adding '/tmp/tmpynz95jva/src.linux-x86_64-3.10/get_flux_py-f2pywrappers2.f90' to sources.
+INFO: build_src: building npy-pkg config files
+running build_ext
+INFO: customize UnixCCompiler
+INFO: customize UnixCCompiler using build_ext
+INFO: customize Gnu95FCompiler
+INFO: Found executable /usr/bin/gfortran
+INFO: customize Gnu95FCompiler using build_ext
+INFO: building 'get_flux_py' extension
+INFO: compiling C sources
+INFO: C compiler: gcc -pthread -B /home/byunkh/.conda/envs/condaenv/compiler_compat -Wno-unused-result -Wsign-compare -DNDEBUG -fwrapv -O2 -Wall -fPIC -O2 -isystem /home/byunkh/.conda/envs/condaenv/include -fPIC -O2 -isystem /home/byunkh/.conda/envs/condaenv/include -fPIC
+
+creating /tmp/tmpynz95jva/tmp
+creating /tmp/tmpynz95jva/tmp/tmpynz95jva
+creating /tmp/tmpynz95jva/tmp/tmpynz95jva/src.linux-x86_64-3.10
+INFO: compile options: '-DNPY_DISABLE_OPTIMIZATION=1 -I/tmp/tmpynz95jva/src.linux-x86_64-3.10 -I/home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/core/include -I/home/byunkh/.conda/envs/condaenv/include/python3.10 -c'
+INFO: gcc: /tmp/tmpynz95jva/src.linux-x86_64-3.10/get_flux_pymodule.c
+INFO: gcc: /tmp/tmpynz95jva/src.linux-x86_64-3.10/fortranobject.c
+INFO: compiling Fortran 90 module sources
+INFO: Fortran f77 compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran f90 compiler: /usr/bin/gfortran -fopenmp -fPIC -O3 -funroll-loops
+Fortran fix compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fopenmp -fPIC -O3 -funroll-loops
+INFO: compile options: '-I/tmp/tmpynz95jva/src.linux-x86_64-3.10 -I/home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/core/include -I/home/byunkh/.conda/envs/condaenv/include/python3.10 -c'
+extra options: '-J/tmp/tmpynz95jva/ -I/tmp/tmpynz95jva/'
+INFO: gfortran:f90: get_flux_py.f90
+INFO: compiling Fortran sources
+INFO: Fortran f77 compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran f90 compiler: /usr/bin/gfortran -fopenmp -fPIC -O3 -funroll-loops
+Fortran fix compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fopenmp -fPIC -O3 -funroll-loops
+INFO: compile options: '-I/tmp/tmpynz95jva/src.linux-x86_64-3.10 -I/home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/core/include -I/home/byunkh/.conda/envs/condaenv/include/python3.10 -c'
+extra options: '-J/tmp/tmpynz95jva/ -I/tmp/tmpynz95jva/'
+INFO: gfortran:f90: /tmp/tmpynz95jva/src.linux-x86_64-3.10/get_flux_py-f2pywrappers2.f90
+INFO: /usr/bin/gfortran -Wall -g -Wall -g -shared /tmp/tmpynz95jva/tmp/tmpynz95jva/src.linux-x86_64-3.10/get_flux_pymodule.o /tmp/tmpynz95jva/tmp/tmpynz95jva/src.linux-x86_64-3.10/fortranobject.o /tmp/tmpynz95jva/get_flux_py.o /tmp/tmpynz95jva/tmp/tmpynz95jva/src.linux-x86_64-3.10/get_flux_py-f2pywrappers2.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9 -lgomp -lgfortran -o ./get_flux_py.cpython-310-x86_64-linux-gnu.so
+Removing build directory /tmp/tmpynz95jva
+
+
+
+Compiling get_ptcl_py
+
+
+
+Unknown vendor: "gfortran"
+running build
+running config_cc
+INFO: unifing config_cc, config, build_clib, build_ext, build commands --compiler options
+running config_fc
+INFO: unifing config_fc, config, build_clib, build_ext, build commands --fcompiler options
+running build_src
+INFO: build_src
+INFO: building extension "get_ptcl_py" sources
+INFO: f2py options: []
+INFO: f2py:> /tmp/tmpo2jyh1fz/src.linux-x86_64-3.10/get_ptcl_pymodule.c
+creating /tmp/tmpo2jyh1fz/src.linux-x86_64-3.10
+Reading fortran codes...
+	Reading file 'get_ptcl_py.f90' (format:free)
+Post-processing...
+	Block: get_ptcl_py
+			Block: get_ptcl_py
+				Block: get_ptcl
+In: :get_ptcl_py:get_ptcl_py.f90:get_ptcl_py:get_ptcl
+get_useparameters: no module omp_lib info used by get_ptcl
+				Block: sort_ptcl
+				Block: get_star_ptcl
+				Block: get_star_ptcl_yzics
+				Block: get_ptcl_num
+				Block: get_ptcl_num_yzics
+				Block: rd_part
+				Block: rd_part_yzics
+				Block: rd_part_nbody
+				Block: quicksort
+				Block: get_ptcl_free
+Post-processing (stage 2)...
+	Block: get_ptcl_py
+		Block: unknown_interface
+			Block: get_ptcl_py
+				Block: get_ptcl
+				Block: sort_ptcl
+				Block: get_star_ptcl
+				Block: get_star_ptcl_yzics
+				Block: get_ptcl_num
+				Block: get_ptcl_num_yzics
+				Block: rd_part
+				Block: rd_part_yzics
+				Block: rd_part_nbody
+				Block: quicksort
+				Block: get_ptcl_free
+Building modules...
+    Building module "get_ptcl_py"...
+		Constructing F90 module support for "get_ptcl_py"...
+		  Variables: ptcl id_raw n_star
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+		Creating wrapper for Fortran subroutine "get_ptcl"("get_ptcl")...
+            Constructing wrapper function "get_ptcl_py.get_ptcl"...
+              get_ptcl(dir_raw,id,dom_list,larr,darr)
+            Constructing wrapper function "get_ptcl_py.sort_ptcl"...
+              sort_ptcl(p_dbl,p_int,[nptcl])
+            Constructing wrapper function "get_ptcl_py.get_star_ptcl"...
+              get_star_ptcl(p_dbl,p_int,p_dbl2,p_int2,horg,dmp_mass,[n_raw,n_star])
+            Constructing wrapper function "get_ptcl_py.get_star_ptcl_yzics"...
+              get_star_ptcl_yzics(p_dbl,p_int,p_dbl2,p_int2,horg,dmp_mass,[n_raw,n_star])
+            Constructing wrapper function "get_ptcl_py.get_ptcl_num"...
+              get_ptcl_num(rint,rdbl,n_star,n_thread,horg,dmp_mass,[n_raw])
+            Constructing wrapper function "get_ptcl_py.get_ptcl_num_yzics"...
+              get_ptcl_num_yzics(id,age,n_star,n_thread,horg,dmp_mass,[n_raw])
+            Constructing wrapper function "get_ptcl_py.rd_part"...
+              rd_part(dir_raw,dom_list,n_str,n_snap,rdbl,rint,longint,[n_dom,n_raw])
+            Constructing wrapper function "get_ptcl_py.rd_part_yzics"...
+              rd_part_yzics(dir_raw,dom_list,n_str,n_snap,rdbl,rint,longint,[n_dom,n_raw])
+            Constructing wrapper function "get_ptcl_py.rd_part_nbody"...
+              rd_part_nbody(dir_raw,dom_list,n_raw,n_str,n_snap,[n_dom])
+            Constructing wrapper function "get_ptcl_py.quicksort"...
+              quicksort(a,first,last,[nn])
+            Constructing wrapper function "get_ptcl_py.get_ptcl_free"...
+              get_ptcl_free()
+    Wrote C/API module "get_ptcl_py" to file "/tmp/tmpo2jyh1fz/src.linux-x86_64-3.10/get_ptcl_pymodule.c"
+    Fortran 90 wrappers are saved to "/tmp/tmpo2jyh1fz/src.linux-x86_64-3.10/get_ptcl_py-f2pywrappers2.f90"
+INFO:   adding '/tmp/tmpo2jyh1fz/src.linux-x86_64-3.10/fortranobject.c' to sources.
+INFO:   adding '/tmp/tmpo2jyh1fz/src.linux-x86_64-3.10' to include_dirs.
+copying /home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/f2py/src/fortranobject.c -> /tmp/tmpo2jyh1fz/src.linux-x86_64-3.10
+copying /home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/f2py/src/fortranobject.h -> /tmp/tmpo2jyh1fz/src.linux-x86_64-3.10
+INFO:   adding '/tmp/tmpo2jyh1fz/src.linux-x86_64-3.10/get_ptcl_py-f2pywrappers2.f90' to sources.
+INFO: build_src: building npy-pkg config files
+running build_ext
+INFO: customize UnixCCompiler
+INFO: customize UnixCCompiler using build_ext
+INFO: customize Gnu95FCompiler
+INFO: Found executable /usr/bin/gfortran
+INFO: customize Gnu95FCompiler using build_ext
+INFO: building 'get_ptcl_py' extension
+INFO: compiling C sources
+INFO: C compiler: gcc -pthread -B /home/byunkh/.conda/envs/condaenv/compiler_compat -Wno-unused-result -Wsign-compare -DNDEBUG -fwrapv -O2 -Wall -fPIC -O2 -isystem /home/byunkh/.conda/envs/condaenv/include -fPIC -O2 -isystem /home/byunkh/.conda/envs/condaenv/include -fPIC
+
+creating /tmp/tmpo2jyh1fz/tmp
+creating /tmp/tmpo2jyh1fz/tmp/tmpo2jyh1fz
+creating /tmp/tmpo2jyh1fz/tmp/tmpo2jyh1fz/src.linux-x86_64-3.10
+INFO: compile options: '-DNPY_DISABLE_OPTIMIZATION=1 -I/tmp/tmpo2jyh1fz/src.linux-x86_64-3.10 -I/home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/core/include -I/home/byunkh/.conda/envs/condaenv/include/python3.10 -c'
+INFO: gcc: /tmp/tmpo2jyh1fz/src.linux-x86_64-3.10/get_ptcl_pymodule.c
+INFO: gcc: /tmp/tmpo2jyh1fz/src.linux-x86_64-3.10/fortranobject.c
+INFO: compiling Fortran 90 module sources
+INFO: Fortran f77 compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran f90 compiler: /usr/bin/gfortran -fopenmp -fPIC -O3 -funroll-loops
+Fortran fix compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fopenmp -fPIC -O3 -funroll-loops
+INFO: compile options: '-I/tmp/tmpo2jyh1fz/src.linux-x86_64-3.10 -I/home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/core/include -I/home/byunkh/.conda/envs/condaenv/include/python3.10 -c'
+extra options: '-J/tmp/tmpo2jyh1fz/ -I/tmp/tmpo2jyh1fz/'
+INFO: gfortran:f90: get_ptcl_py.f90
+INFO: compiling Fortran sources
+INFO: Fortran f77 compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran f90 compiler: /usr/bin/gfortran -fopenmp -fPIC -O3 -funroll-loops
+Fortran fix compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fopenmp -fPIC -O3 -funroll-loops
+INFO: compile options: '-I/tmp/tmpo2jyh1fz/src.linux-x86_64-3.10 -I/home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/core/include -I/home/byunkh/.conda/envs/condaenv/include/python3.10 -c'
+extra options: '-J/tmp/tmpo2jyh1fz/ -I/tmp/tmpo2jyh1fz/'
+INFO: gfortran:f90: /tmp/tmpo2jyh1fz/src.linux-x86_64-3.10/get_ptcl_py-f2pywrappers2.f90
+INFO: /usr/bin/gfortran -Wall -g -Wall -g -shared /tmp/tmpo2jyh1fz/tmp/tmpo2jyh1fz/src.linux-x86_64-3.10/get_ptcl_pymodule.o /tmp/tmpo2jyh1fz/tmp/tmpo2jyh1fz/src.linux-x86_64-3.10/fortranobject.o /tmp/tmpo2jyh1fz/get_ptcl_py.o /tmp/tmpo2jyh1fz/tmp/tmpo2jyh1fz/src.linux-x86_64-3.10/get_ptcl_py-f2pywrappers2.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9 -lgomp -lgfortran -o ./get_ptcl_py.cpython-310-x86_64-linux-gnu.so
+Removing build directory /tmp/tmpo2jyh1fz
+
+
+
+Compiling jsamr2cell_py
+
+
+
+Unknown vendor: "gfortran"
+running build
+running config_cc
+INFO: unifing config_cc, config, build_clib, build_ext, build commands --compiler options
+running config_fc
+INFO: unifing config_fc, config, build_clib, build_ext, build commands --fcompiler options
+running build_src
+INFO: build_src
+INFO: building extension "jsamr2cell_py" sources
+INFO: f2py options: []
+INFO: f2py:> /tmp/tmpo3p_dqlo/src.linux-x86_64-3.10/jsamr2cell_pymodule.c
+creating /tmp/tmpo3p_dqlo/src.linux-x86_64-3.10
+Reading fortran codes...
+	Reading file 'jsamr2cell_py.f90' (format:free)
+Post-processing...
+	Block: jsamr2cell_py
+			Block: jsamr2cell_py
+				Block: jsamr2cell
+In: :jsamr2cell_py:jsamr2cell_py.f90:jsamr2cell_py:jsamr2cell
+get_useparameters: no module omp_lib info used by jsamr2cell
+				Block: jsamr2cell_free
+Post-processing (stage 2)...
+	Block: jsamr2cell_py
+		Block: unknown_interface
+			Block: jsamr2cell_py
+				Block: jsamr2cell
+				Block: jsamr2cell_free
+Building modules...
+    Building module "jsamr2cell_py"...
+		Constructing F90 module support for "jsamr2cell_py"...
+		  Variables: mesh_xg mesh_hd mesh_dx mesh_lv
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+		Creating wrapper for Fortran subroutine "jsamr2cell"("jsamr2cell")...
+            Constructing wrapper function "jsamr2cell_py.jsamr2cell"...
+              jsamr2cell(larr,darr,fname_a,fname_h,fname_i,mg_ind,domlist)
+            Constructing wrapper function "jsamr2cell_py.jsamr2cell_free"...
+              jsamr2cell_free()
+    Wrote C/API module "jsamr2cell_py" to file "/tmp/tmpo3p_dqlo/src.linux-x86_64-3.10/jsamr2cell_pymodule.c"
+    Fortran 90 wrappers are saved to "/tmp/tmpo3p_dqlo/src.linux-x86_64-3.10/jsamr2cell_py-f2pywrappers2.f90"
+INFO:   adding '/tmp/tmpo3p_dqlo/src.linux-x86_64-3.10/fortranobject.c' to sources.
+INFO:   adding '/tmp/tmpo3p_dqlo/src.linux-x86_64-3.10' to include_dirs.
+copying /home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/f2py/src/fortranobject.c -> /tmp/tmpo3p_dqlo/src.linux-x86_64-3.10
+copying /home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/f2py/src/fortranobject.h -> /tmp/tmpo3p_dqlo/src.linux-x86_64-3.10
+INFO:   adding '/tmp/tmpo3p_dqlo/src.linux-x86_64-3.10/jsamr2cell_py-f2pywrappers2.f90' to sources.
+INFO: build_src: building npy-pkg config files
+running build_ext
+INFO: customize UnixCCompiler
+INFO: customize UnixCCompiler using build_ext
+INFO: customize Gnu95FCompiler
+INFO: Found executable /usr/bin/gfortran
+INFO: customize Gnu95FCompiler using build_ext
+INFO: building 'jsamr2cell_py' extension
+INFO: compiling C sources
+INFO: C compiler: gcc -pthread -B /home/byunkh/.conda/envs/condaenv/compiler_compat -Wno-unused-result -Wsign-compare -DNDEBUG -fwrapv -O2 -Wall -fPIC -O2 -isystem /home/byunkh/.conda/envs/condaenv/include -fPIC -O2 -isystem /home/byunkh/.conda/envs/condaenv/include -fPIC
+
+creating /tmp/tmpo3p_dqlo/tmp
+creating /tmp/tmpo3p_dqlo/tmp/tmpo3p_dqlo
+creating /tmp/tmpo3p_dqlo/tmp/tmpo3p_dqlo/src.linux-x86_64-3.10
+INFO: compile options: '-DNPY_DISABLE_OPTIMIZATION=1 -I/tmp/tmpo3p_dqlo/src.linux-x86_64-3.10 -I/home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/core/include -I/home/byunkh/.conda/envs/condaenv/include/python3.10 -c'
+INFO: gcc: /tmp/tmpo3p_dqlo/src.linux-x86_64-3.10/jsamr2cell_pymodule.c
+INFO: gcc: /tmp/tmpo3p_dqlo/src.linux-x86_64-3.10/fortranobject.c
+INFO: compiling Fortran 90 module sources
+INFO: Fortran f77 compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran f90 compiler: /usr/bin/gfortran -fopenmp -fPIC -O3 -funroll-loops
+Fortran fix compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fopenmp -fPIC -O3 -funroll-loops
+INFO: compile options: '-I/tmp/tmpo3p_dqlo/src.linux-x86_64-3.10 -I/home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/core/include -I/home/byunkh/.conda/envs/condaenv/include/python3.10 -c'
+extra options: '-J/tmp/tmpo3p_dqlo/ -I/tmp/tmpo3p_dqlo/'
+INFO: gfortran:f90: jsamr2cell_py.f90
+INFO: compiling Fortran sources
+INFO: Fortran f77 compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran f90 compiler: /usr/bin/gfortran -fopenmp -fPIC -O3 -funroll-loops
+Fortran fix compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fopenmp -fPIC -O3 -funroll-loops
+INFO: compile options: '-I/tmp/tmpo3p_dqlo/src.linux-x86_64-3.10 -I/home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/core/include -I/home/byunkh/.conda/envs/condaenv/include/python3.10 -c'
+extra options: '-J/tmp/tmpo3p_dqlo/ -I/tmp/tmpo3p_dqlo/'
+INFO: gfortran:f90: /tmp/tmpo3p_dqlo/src.linux-x86_64-3.10/jsamr2cell_py-f2pywrappers2.f90
+INFO: /usr/bin/gfortran -Wall -g -Wall -g -shared /tmp/tmpo3p_dqlo/tmp/tmpo3p_dqlo/src.linux-x86_64-3.10/jsamr2cell_pymodule.o /tmp/tmpo3p_dqlo/tmp/tmpo3p_dqlo/src.linux-x86_64-3.10/fortranobject.o /tmp/tmpo3p_dqlo/jsamr2cell_py.o /tmp/tmpo3p_dqlo/tmp/tmpo3p_dqlo/src.linux-x86_64-3.10/jsamr2cell_py-f2pywrappers2.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9 -lgomp -lgfortran -o ./jsamr2cell_py.cpython-310-x86_64-linux-gnu.so
+Removing build directory /tmp/tmpo3p_dqlo
+
+
+
+Compiling jsamr2cell_totnum_py
+
+
+
+Unknown vendor: "gfortran"
+running build
+running config_cc
+INFO: unifing config_cc, config, build_clib, build_ext, build commands --compiler options
+running config_fc
+INFO: unifing config_fc, config, build_clib, build_ext, build commands --fcompiler options
+running build_src
+INFO: build_src
+INFO: building extension "jsamr2cell_totnum_py" sources
+INFO: f2py options: []
+INFO: f2py:> /tmp/tmpb4w16z71/src.linux-x86_64-3.10/jsamr2cell_totnum_pymodule.c
+creating /tmp/tmpb4w16z71/src.linux-x86_64-3.10
+Reading fortran codes...
+	Reading file 'jsamr2cell_totnum_py.f90' (format:free)
+Post-processing...
+	Block: jsamr2cell_totnum_py
+			Block: jsamr2cell_totnum_py
+				Block: jsamr2cell_totnum
+In: :jsamr2cell_totnum_py:jsamr2cell_totnum_py.f90:jsamr2cell_totnum_py:jsamr2cell_totnum
+get_useparameters: no module omp_lib info used by jsamr2cell_totnum
+				Block: jsamr2cell_totnum_free
+Post-processing (stage 2)...
+	Block: jsamr2cell_totnum_py
+		Block: unknown_interface
+			Block: jsamr2cell_totnum_py
+				Block: jsamr2cell_totnum
+				Block: jsamr2cell_totnum_free
+Building modules...
+    Building module "jsamr2cell_totnum_py"...
+		Constructing F90 module support for "jsamr2cell_totnum_py"...
+		  Variables: ntot nvarh mg_ind
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+		Creating wrapper for Fortran subroutine "jsamr2cell_totnum"("jsamr2cell_totnum")...
+            Constructing wrapper function "jsamr2cell_totnum_py.jsamr2cell_totnum"...
+              jsamr2cell_totnum(larr,darr,fname_a,fname_h,domlist)
+            Constructing wrapper function "jsamr2cell_totnum_py.jsamr2cell_totnum_free"...
+              jsamr2cell_totnum_free()
+    Wrote C/API module "jsamr2cell_totnum_py" to file "/tmp/tmpb4w16z71/src.linux-x86_64-3.10/jsamr2cell_totnum_pymodule.c"
+    Fortran 90 wrappers are saved to "/tmp/tmpb4w16z71/src.linux-x86_64-3.10/jsamr2cell_totnum_py-f2pywrappers2.f90"
+INFO:   adding '/tmp/tmpb4w16z71/src.linux-x86_64-3.10/fortranobject.c' to sources.
+INFO:   adding '/tmp/tmpb4w16z71/src.linux-x86_64-3.10' to include_dirs.
+copying /home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/f2py/src/fortranobject.c -> /tmp/tmpb4w16z71/src.linux-x86_64-3.10
+copying /home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/f2py/src/fortranobject.h -> /tmp/tmpb4w16z71/src.linux-x86_64-3.10
+INFO:   adding '/tmp/tmpb4w16z71/src.linux-x86_64-3.10/jsamr2cell_totnum_py-f2pywrappers2.f90' to sources.
+INFO: build_src: building npy-pkg config files
+running build_ext
+INFO: customize UnixCCompiler
+INFO: customize UnixCCompiler using build_ext
+INFO: customize Gnu95FCompiler
+INFO: Found executable /usr/bin/gfortran
+INFO: customize Gnu95FCompiler using build_ext
+INFO: building 'jsamr2cell_totnum_py' extension
+INFO: compiling C sources
+INFO: C compiler: gcc -pthread -B /home/byunkh/.conda/envs/condaenv/compiler_compat -Wno-unused-result -Wsign-compare -DNDEBUG -fwrapv -O2 -Wall -fPIC -O2 -isystem /home/byunkh/.conda/envs/condaenv/include -fPIC -O2 -isystem /home/byunkh/.conda/envs/condaenv/include -fPIC
+
+creating /tmp/tmpb4w16z71/tmp
+creating /tmp/tmpb4w16z71/tmp/tmpb4w16z71
+creating /tmp/tmpb4w16z71/tmp/tmpb4w16z71/src.linux-x86_64-3.10
+INFO: compile options: '-DNPY_DISABLE_OPTIMIZATION=1 -I/tmp/tmpb4w16z71/src.linux-x86_64-3.10 -I/home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/core/include -I/home/byunkh/.conda/envs/condaenv/include/python3.10 -c'
+INFO: gcc: /tmp/tmpb4w16z71/src.linux-x86_64-3.10/jsamr2cell_totnum_pymodule.c
+INFO: gcc: /tmp/tmpb4w16z71/src.linux-x86_64-3.10/fortranobject.c
+INFO: compiling Fortran 90 module sources
+INFO: Fortran f77 compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran f90 compiler: /usr/bin/gfortran -fopenmp -fPIC -O3 -funroll-loops
+Fortran fix compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fopenmp -fPIC -O3 -funroll-loops
+INFO: compile options: '-I/tmp/tmpb4w16z71/src.linux-x86_64-3.10 -I/home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/core/include -I/home/byunkh/.conda/envs/condaenv/include/python3.10 -c'
+extra options: '-J/tmp/tmpb4w16z71/ -I/tmp/tmpb4w16z71/'
+INFO: gfortran:f90: jsamr2cell_totnum_py.f90
+INFO: compiling Fortran sources
+INFO: Fortran f77 compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran f90 compiler: /usr/bin/gfortran -fopenmp -fPIC -O3 -funroll-loops
+Fortran fix compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fopenmp -fPIC -O3 -funroll-loops
+INFO: compile options: '-I/tmp/tmpb4w16z71/src.linux-x86_64-3.10 -I/home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/core/include -I/home/byunkh/.conda/envs/condaenv/include/python3.10 -c'
+extra options: '-J/tmp/tmpb4w16z71/ -I/tmp/tmpb4w16z71/'
+INFO: gfortran:f90: /tmp/tmpb4w16z71/src.linux-x86_64-3.10/jsamr2cell_totnum_py-f2pywrappers2.f90
+INFO: /usr/bin/gfortran -Wall -g -Wall -g -shared /tmp/tmpb4w16z71/tmp/tmpb4w16z71/src.linux-x86_64-3.10/jsamr2cell_totnum_pymodule.o /tmp/tmpb4w16z71/tmp/tmpb4w16z71/src.linux-x86_64-3.10/fortranobject.o /tmp/tmpb4w16z71/jsamr2cell_totnum_py.o /tmp/tmpb4w16z71/tmp/tmpb4w16z71/src.linux-x86_64-3.10/jsamr2cell_totnum_py-f2pywrappers2.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9 -lgomp -lgfortran -o ./jsamr2cell_totnum_py.cpython-310-x86_64-linux-gnu.so
+Removing build directory /tmp/tmpb4w16z71
+
+
+
+Compiling js_gasmap_py
+
+
+
+Unknown vendor: "gfortran"
+running build
+running config_cc
+INFO: unifing config_cc, config, build_clib, build_ext, build commands --compiler options
+running config_fc
+INFO: unifing config_fc, config, build_clib, build_ext, build commands --fcompiler options
+running build_src
+INFO: build_src
+INFO: building extension "js_gasmap_py" sources
+INFO: f2py options: []
+INFO: f2py:> /tmp/tmp9svqs337/src.linux-x86_64-3.10/js_gasmap_pymodule.c
+creating /tmp/tmp9svqs337/src.linux-x86_64-3.10
+Reading fortran codes...
+	Reading file 'js_gasmap_py.f90' (format:free)
+Post-processing...
+	Block: js_gasmap_py
+			Block: js_gasmap_py
+				Block: js_gasmap
+In: :js_gasmap_py:js_gasmap_py.f90:js_gasmap_py:js_gasmap
+get_useparameters: no module omp_lib info used by js_gasmap
+				Block: grid_geometry
+				Block: js_gasmap_free
+Post-processing (stage 2)...
+	Block: js_gasmap_py
+		Block: unknown_interface
+			Block: js_gasmap_py
+				Block: js_gasmap
+				Block: grid_geometry
+				Block: js_gasmap_free
+Building modules...
+    Building module "js_gasmap_py"...
+		Constructing F90 module support for "js_gasmap_py"...
+		  Variables: map
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+		Creating wrapper for Fortran subroutine "js_gasmap"("js_gasmap")...
+            Constructing wrapper function "js_gasmap_py.js_gasmap"...
+              js_gasmap(larr,darr,xx,yy,zz,bw,xr,yr)
+            Constructing wrapper function "js_gasmap_py.grid_geometry"...
+              grid_geometry(ix,iy,dx,dy,xr0,yr0,x,y,bx,by,geometry)
+            Constructing wrapper function "js_gasmap_py.js_gasmap_free"...
+              js_gasmap_free()
+    Wrote C/API module "js_gasmap_py" to file "/tmp/tmp9svqs337/src.linux-x86_64-3.10/js_gasmap_pymodule.c"
+    Fortran 90 wrappers are saved to "/tmp/tmp9svqs337/src.linux-x86_64-3.10/js_gasmap_py-f2pywrappers2.f90"
+INFO:   adding '/tmp/tmp9svqs337/src.linux-x86_64-3.10/fortranobject.c' to sources.
+INFO:   adding '/tmp/tmp9svqs337/src.linux-x86_64-3.10' to include_dirs.
+copying /home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/f2py/src/fortranobject.c -> /tmp/tmp9svqs337/src.linux-x86_64-3.10
+copying /home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/f2py/src/fortranobject.h -> /tmp/tmp9svqs337/src.linux-x86_64-3.10
+INFO:   adding '/tmp/tmp9svqs337/src.linux-x86_64-3.10/js_gasmap_py-f2pywrappers2.f90' to sources.
+INFO: build_src: building npy-pkg config files
+running build_ext
+INFO: customize UnixCCompiler
+INFO: customize UnixCCompiler using build_ext
+INFO: customize Gnu95FCompiler
+INFO: Found executable /usr/bin/gfortran
+INFO: customize Gnu95FCompiler using build_ext
+INFO: building 'js_gasmap_py' extension
+INFO: compiling C sources
+INFO: C compiler: gcc -pthread -B /home/byunkh/.conda/envs/condaenv/compiler_compat -Wno-unused-result -Wsign-compare -DNDEBUG -fwrapv -O2 -Wall -fPIC -O2 -isystem /home/byunkh/.conda/envs/condaenv/include -fPIC -O2 -isystem /home/byunkh/.conda/envs/condaenv/include -fPIC
+
+creating /tmp/tmp9svqs337/tmp
+creating /tmp/tmp9svqs337/tmp/tmp9svqs337
+creating /tmp/tmp9svqs337/tmp/tmp9svqs337/src.linux-x86_64-3.10
+INFO: compile options: '-DNPY_DISABLE_OPTIMIZATION=1 -I/tmp/tmp9svqs337/src.linux-x86_64-3.10 -I/home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/core/include -I/home/byunkh/.conda/envs/condaenv/include/python3.10 -c'
+INFO: gcc: /tmp/tmp9svqs337/src.linux-x86_64-3.10/js_gasmap_pymodule.c
+INFO: gcc: /tmp/tmp9svqs337/src.linux-x86_64-3.10/fortranobject.c
+INFO: compiling Fortran 90 module sources
+INFO: Fortran f77 compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran f90 compiler: /usr/bin/gfortran -fopenmp -fPIC -O3 -funroll-loops
+Fortran fix compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fopenmp -fPIC -O3 -funroll-loops
+INFO: compile options: '-I/tmp/tmp9svqs337/src.linux-x86_64-3.10 -I/home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/core/include -I/home/byunkh/.conda/envs/condaenv/include/python3.10 -c'
+extra options: '-J/tmp/tmp9svqs337/ -I/tmp/tmp9svqs337/'
+INFO: gfortran:f90: js_gasmap_py.f90
+INFO: compiling Fortran sources
+INFO: Fortran f77 compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran f90 compiler: /usr/bin/gfortran -fopenmp -fPIC -O3 -funroll-loops
+Fortran fix compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fopenmp -fPIC -O3 -funroll-loops
+INFO: compile options: '-I/tmp/tmp9svqs337/src.linux-x86_64-3.10 -I/home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/core/include -I/home/byunkh/.conda/envs/condaenv/include/python3.10 -c'
+extra options: '-J/tmp/tmp9svqs337/ -I/tmp/tmp9svqs337/'
+INFO: gfortran:f90: /tmp/tmp9svqs337/src.linux-x86_64-3.10/js_gasmap_py-f2pywrappers2.f90
+INFO: /usr/bin/gfortran -Wall -g -Wall -g -shared /tmp/tmp9svqs337/tmp/tmp9svqs337/src.linux-x86_64-3.10/js_gasmap_pymodule.o /tmp/tmp9svqs337/tmp/tmp9svqs337/src.linux-x86_64-3.10/fortranobject.o /tmp/tmp9svqs337/js_gasmap_py.o /tmp/tmp9svqs337/tmp/tmp9svqs337/src.linux-x86_64-3.10/js_gasmap_py-f2pywrappers2.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9 -lgomp -lgfortran -o ./js_gasmap_py.cpython-310-x86_64-linux-gnu.so
+Removing build directory /tmp/tmp9svqs337
+
+
+
+Compiling js_getpt_ft
+
+
+
+Unknown vendor: "gfortran"
+running build
+running config_cc
+INFO: unifing config_cc, config, build_clib, build_ext, build commands --compiler options
+running config_fc
+INFO: unifing config_fc, config, build_clib, build_ext, build commands --fcompiler options
+running build_src
+INFO: build_src
+INFO: building extension "js_getpt_ft" sources
+INFO: f2py options: []
+INFO: f2py:> /tmp/tmp1po3uf7k/src.linux-x86_64-3.10/js_getpt_ftmodule.c
+creating /tmp/tmp1po3uf7k/src.linux-x86_64-3.10
+Reading fortran codes...
+	Reading file 'js_getpt_ft.f90' (format:free)
+nodetype <re.Match object; span=(0, 8), match='nodetype'>
+dat <re.Match object; span=(0, 3), match='dat'>
+infotype <re.Match object; span=(0, 8), match='infotype'>
+Post-processing...
+	Block: js_getpt_ft
+			Block: js_getpt
+				Block: nodetype
+				Block: dat
+				Block: infotype
+				Block: js_getpt_ft
+In: :js_getpt_ft:js_getpt_ft.f90:js_getpt:js_getpt_ft
+get_useparameters: no module omp_lib info used by js_getpt_ft
+				Block: js_getpt_ft_free
+Post-processing (stage 2)...
+	Block: js_getpt_ft
+		Block: unknown_interface
+			Block: js_getpt
+				Block: nodetype
+				Block: dat
+				Block: infotype
+				Block: js_getpt_ft
+				Block: js_getpt_ft_free
+Building modules...
+    Building module "js_getpt_ft"...
+		Constructing F90 module support for "js_getpt"...
+		  Variables: pot force
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+f90mod_rules.buildhooks: skipping type nodetype
+f90mod_rules.buildhooks: skipping type dat
+f90mod_rules.buildhooks: skipping type infotype
+		Creating wrapper for Fortran subroutine "js_getpt_ft"("js_getpt_ft")...
+            Constructing wrapper function "js_getpt.js_getpt_ft"...
+              js_getpt_ft(larr,darr,pos,mm)
+            Constructing wrapper function "js_getpt.js_getpt_ft_free"...
+              js_getpt_ft_free()
+    Wrote C/API module "js_getpt_ft" to file "/tmp/tmp1po3uf7k/src.linux-x86_64-3.10/js_getpt_ftmodule.c"
+    Fortran 90 wrappers are saved to "/tmp/tmp1po3uf7k/src.linux-x86_64-3.10/js_getpt_ft-f2pywrappers2.f90"
+INFO:   adding '/tmp/tmp1po3uf7k/src.linux-x86_64-3.10/fortranobject.c' to sources.
+INFO:   adding '/tmp/tmp1po3uf7k/src.linux-x86_64-3.10' to include_dirs.
+copying /home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/f2py/src/fortranobject.c -> /tmp/tmp1po3uf7k/src.linux-x86_64-3.10
+copying /home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/f2py/src/fortranobject.h -> /tmp/tmp1po3uf7k/src.linux-x86_64-3.10
+INFO:   adding '/tmp/tmp1po3uf7k/src.linux-x86_64-3.10/js_getpt_ft-f2pywrappers2.f90' to sources.
+INFO: build_src: building npy-pkg config files
+running build_ext
+INFO: customize UnixCCompiler
+INFO: customize UnixCCompiler using build_ext
+INFO: customize Gnu95FCompiler
+INFO: Found executable /usr/bin/gfortran
+INFO: customize Gnu95FCompiler using build_ext
+INFO: building 'js_getpt_ft' extension
+INFO: compiling C sources
+INFO: C compiler: gcc -pthread -B /home/byunkh/.conda/envs/condaenv/compiler_compat -Wno-unused-result -Wsign-compare -DNDEBUG -fwrapv -O2 -Wall -fPIC -O2 -isystem /home/byunkh/.conda/envs/condaenv/include -fPIC -O2 -isystem /home/byunkh/.conda/envs/condaenv/include -fPIC
+
+creating /tmp/tmp1po3uf7k/tmp
+creating /tmp/tmp1po3uf7k/tmp/tmp1po3uf7k
+creating /tmp/tmp1po3uf7k/tmp/tmp1po3uf7k/src.linux-x86_64-3.10
+INFO: compile options: '-DNPY_DISABLE_OPTIMIZATION=1 -I/tmp/tmp1po3uf7k/src.linux-x86_64-3.10 -I/home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/core/include -I/home/byunkh/.conda/envs/condaenv/include/python3.10 -c'
+INFO: gcc: /tmp/tmp1po3uf7k/src.linux-x86_64-3.10/js_getpt_ftmodule.c
+INFO: gcc: /tmp/tmp1po3uf7k/src.linux-x86_64-3.10/fortranobject.c
+INFO: compiling Fortran 90 module sources
+INFO: Fortran f77 compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran f90 compiler: /usr/bin/gfortran -fopenmp -fPIC -O3 -funroll-loops
+Fortran fix compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fopenmp -fPIC -O3 -funroll-loops
+INFO: compile options: '-I/tmp/tmp1po3uf7k/src.linux-x86_64-3.10 -I/home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/core/include -I/home/byunkh/.conda/envs/condaenv/include/python3.10 -c'
+extra options: '-J/tmp/tmp1po3uf7k/ -I/tmp/tmp1po3uf7k/'
+INFO: gfortran:f90: js_getpt_ft.f90
+INFO: compiling Fortran sources
+INFO: Fortran f77 compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran f90 compiler: /usr/bin/gfortran -fopenmp -fPIC -O3 -funroll-loops
+Fortran fix compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fopenmp -fPIC -O3 -funroll-loops
+INFO: compile options: '-I/tmp/tmp1po3uf7k/src.linux-x86_64-3.10 -I/home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/core/include -I/home/byunkh/.conda/envs/condaenv/include/python3.10 -c'
+extra options: '-J/tmp/tmp1po3uf7k/ -I/tmp/tmp1po3uf7k/'
+INFO: gfortran:f90: /tmp/tmp1po3uf7k/src.linux-x86_64-3.10/js_getpt_ft-f2pywrappers2.f90
+INFO: /usr/bin/gfortran -Wall -g -Wall -g -shared /tmp/tmp1po3uf7k/tmp/tmp1po3uf7k/src.linux-x86_64-3.10/js_getpt_ftmodule.o /tmp/tmp1po3uf7k/tmp/tmp1po3uf7k/src.linux-x86_64-3.10/fortranobject.o /tmp/tmp1po3uf7k/js_getpt_ft.o /tmp/tmp1po3uf7k/tmp/tmp1po3uf7k/src.linux-x86_64-3.10/js_getpt_ft-f2pywrappers2.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9 -lgomp -lgfortran -o ./js_getpt_ft.cpython-310-x86_64-linux-gnu.so
+Removing build directory /tmp/tmp1po3uf7k
+
+
+
+Compiling jsrd_part_totnum_py
+
+
+
+Unknown vendor: "gfortran"
+running build
+running config_cc
+INFO: unifing config_cc, config, build_clib, build_ext, build commands --compiler options
+running config_fc
+INFO: unifing config_fc, config, build_clib, build_ext, build commands --fcompiler options
+running build_src
+INFO: build_src
+INFO: building extension "jsrd_part_totnum_py" sources
+INFO: f2py options: []
+INFO: f2py:> /tmp/tmpn2v5t3vq/src.linux-x86_64-3.10/jsrd_part_totnum_pymodule.c
+creating /tmp/tmpn2v5t3vq/src.linux-x86_64-3.10
+Reading fortran codes...
+	Reading file 'jsrd_part_totnum_py.f90' (format:free)
+Post-processing...
+	Block: jsrd_part_totnum_py
+			Block: jsrd_part_totnum_py
+				Block: jsrd_part_totnum
+In: :jsrd_part_totnum_py:jsrd_part_totnum_py.f90:jsrd_part_totnum_py:jsrd_part_totnum
+get_useparameters: no module omp_lib info used by jsrd_part_totnum
+				Block: jsrd_part_totnum_free
+Post-processing (stage 2)...
+	Block: jsrd_part_totnum_py
+		Block: unknown_interface
+			Block: jsrd_part_totnum_py
+				Block: jsrd_part_totnum
+				Block: jsrd_part_totnum_free
+Building modules...
+    Building module "jsrd_part_totnum_py"...
+		Constructing F90 module support for "jsrd_part_totnum_py"...
+		  Variables: npart_tot part_ind
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+		Creating wrapper for Fortran subroutine "jsrd_part_totnum"("jsrd_part_totnum")...
+            Constructing wrapper function "jsrd_part_totnum_py.jsrd_part_totnum"...
+              jsrd_part_totnum(larr,darr,fname,domlist)
+            Constructing wrapper function "jsrd_part_totnum_py.jsrd_part_totnum_free"...
+              jsrd_part_totnum_free()
+    Wrote C/API module "jsrd_part_totnum_py" to file "/tmp/tmpn2v5t3vq/src.linux-x86_64-3.10/jsrd_part_totnum_pymodule.c"
+    Fortran 90 wrappers are saved to "/tmp/tmpn2v5t3vq/src.linux-x86_64-3.10/jsrd_part_totnum_py-f2pywrappers2.f90"
+INFO:   adding '/tmp/tmpn2v5t3vq/src.linux-x86_64-3.10/fortranobject.c' to sources.
+INFO:   adding '/tmp/tmpn2v5t3vq/src.linux-x86_64-3.10' to include_dirs.
+copying /home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/f2py/src/fortranobject.c -> /tmp/tmpn2v5t3vq/src.linux-x86_64-3.10
+copying /home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/f2py/src/fortranobject.h -> /tmp/tmpn2v5t3vq/src.linux-x86_64-3.10
+INFO:   adding '/tmp/tmpn2v5t3vq/src.linux-x86_64-3.10/jsrd_part_totnum_py-f2pywrappers2.f90' to sources.
+INFO: build_src: building npy-pkg config files
+running build_ext
+INFO: customize UnixCCompiler
+INFO: customize UnixCCompiler using build_ext
+INFO: customize Gnu95FCompiler
+INFO: Found executable /usr/bin/gfortran
+INFO: customize Gnu95FCompiler using build_ext
+INFO: building 'jsrd_part_totnum_py' extension
+INFO: compiling C sources
+INFO: C compiler: gcc -pthread -B /home/byunkh/.conda/envs/condaenv/compiler_compat -Wno-unused-result -Wsign-compare -DNDEBUG -fwrapv -O2 -Wall -fPIC -O2 -isystem /home/byunkh/.conda/envs/condaenv/include -fPIC -O2 -isystem /home/byunkh/.conda/envs/condaenv/include -fPIC
+
+creating /tmp/tmpn2v5t3vq/tmp
+creating /tmp/tmpn2v5t3vq/tmp/tmpn2v5t3vq
+creating /tmp/tmpn2v5t3vq/tmp/tmpn2v5t3vq/src.linux-x86_64-3.10
+INFO: compile options: '-DNPY_DISABLE_OPTIMIZATION=1 -I/tmp/tmpn2v5t3vq/src.linux-x86_64-3.10 -I/home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/core/include -I/home/byunkh/.conda/envs/condaenv/include/python3.10 -c'
+INFO: gcc: /tmp/tmpn2v5t3vq/src.linux-x86_64-3.10/jsrd_part_totnum_pymodule.c
+INFO: gcc: /tmp/tmpn2v5t3vq/src.linux-x86_64-3.10/fortranobject.c
+INFO: compiling Fortran 90 module sources
+INFO: Fortran f77 compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran f90 compiler: /usr/bin/gfortran -fopenmp -fPIC -O3 -funroll-loops
+Fortran fix compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fopenmp -fPIC -O3 -funroll-loops
+INFO: compile options: '-I/tmp/tmpn2v5t3vq/src.linux-x86_64-3.10 -I/home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/core/include -I/home/byunkh/.conda/envs/condaenv/include/python3.10 -c'
+extra options: '-J/tmp/tmpn2v5t3vq/ -I/tmp/tmpn2v5t3vq/'
+INFO: gfortran:f90: jsrd_part_totnum_py.f90
+INFO: compiling Fortran sources
+INFO: Fortran f77 compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran f90 compiler: /usr/bin/gfortran -fopenmp -fPIC -O3 -funroll-loops
+Fortran fix compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fopenmp -fPIC -O3 -funroll-loops
+INFO: compile options: '-I/tmp/tmpn2v5t3vq/src.linux-x86_64-3.10 -I/home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/core/include -I/home/byunkh/.conda/envs/condaenv/include/python3.10 -c'
+extra options: '-J/tmp/tmpn2v5t3vq/ -I/tmp/tmpn2v5t3vq/'
+INFO: gfortran:f90: /tmp/tmpn2v5t3vq/src.linux-x86_64-3.10/jsrd_part_totnum_py-f2pywrappers2.f90
+INFO: /usr/bin/gfortran -Wall -g -Wall -g -shared /tmp/tmpn2v5t3vq/tmp/tmpn2v5t3vq/src.linux-x86_64-3.10/jsrd_part_totnum_pymodule.o /tmp/tmpn2v5t3vq/tmp/tmpn2v5t3vq/src.linux-x86_64-3.10/fortranobject.o /tmp/tmpn2v5t3vq/jsrd_part_totnum_py.o /tmp/tmpn2v5t3vq/tmp/tmpn2v5t3vq/src.linux-x86_64-3.10/jsrd_part_totnum_py-f2pywrappers2.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9 -lgomp -lgfortran -o ./jsrd_part_totnum_py.cpython-310-x86_64-linux-gnu.so
+Removing build directory /tmp/tmpn2v5t3vq
+
+
+
+Compiling jsrd_part_py
+
+
+
+Unknown vendor: "gfortran"
+running build
+running config_cc
+INFO: unifing config_cc, config, build_clib, build_ext, build commands --compiler options
+running config_fc
+INFO: unifing config_fc, config, build_clib, build_ext, build commands --fcompiler options
+running build_src
+INFO: build_src
+INFO: building extension "jsrd_part_py" sources
+INFO: f2py options: []
+INFO: f2py:> /tmp/tmpq9l8adz7/src.linux-x86_64-3.10/jsrd_part_pymodule.c
+creating /tmp/tmpq9l8adz7/src.linux-x86_64-3.10
+Reading fortran codes...
+	Reading file 'jsrd_part_py.f90' (format:free)
+Post-processing...
+	Block: jsrd_part_py
+			Block: jsrd_part_py
+				Block: jsrd_part
+In: :jsrd_part_py:jsrd_part_py.f90:jsrd_part_py:jsrd_part
+get_useparameters: no module omp_lib info used by jsrd_part
+				Block: jsrd_part_free
+Post-processing (stage 2)...
+	Block: jsrd_part_py
+		Block: unknown_interface
+			Block: jsrd_part_py
+				Block: jsrd_part
+				Block: jsrd_part_free
+Building modules...
+    Building module "jsrd_part_py"...
+		Constructing F90 module support for "jsrd_part_py"...
+		  Variables: xx yy zz vx vy vz mp ap zp fam tag domain idvar
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+		Creating wrapper for Fortran subroutine "jsrd_part"("jsrd_part")...
+            Constructing wrapper function "jsrd_part_py.jsrd_part"...
+              jsrd_part(larr,darr,fname,part_ind,domlist)
+            Constructing wrapper function "jsrd_part_py.jsrd_part_free"...
+              jsrd_part_free()
+    Wrote C/API module "jsrd_part_py" to file "/tmp/tmpq9l8adz7/src.linux-x86_64-3.10/jsrd_part_pymodule.c"
+    Fortran 90 wrappers are saved to "/tmp/tmpq9l8adz7/src.linux-x86_64-3.10/jsrd_part_py-f2pywrappers2.f90"
+INFO:   adding '/tmp/tmpq9l8adz7/src.linux-x86_64-3.10/fortranobject.c' to sources.
+INFO:   adding '/tmp/tmpq9l8adz7/src.linux-x86_64-3.10' to include_dirs.
+copying /home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/f2py/src/fortranobject.c -> /tmp/tmpq9l8adz7/src.linux-x86_64-3.10
+copying /home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/f2py/src/fortranobject.h -> /tmp/tmpq9l8adz7/src.linux-x86_64-3.10
+INFO:   adding '/tmp/tmpq9l8adz7/src.linux-x86_64-3.10/jsrd_part_py-f2pywrappers2.f90' to sources.
+INFO: build_src: building npy-pkg config files
+running build_ext
+INFO: customize UnixCCompiler
+INFO: customize UnixCCompiler using build_ext
+INFO: customize Gnu95FCompiler
+INFO: Found executable /usr/bin/gfortran
+INFO: customize Gnu95FCompiler using build_ext
+INFO: building 'jsrd_part_py' extension
+INFO: compiling C sources
+INFO: C compiler: gcc -pthread -B /home/byunkh/.conda/envs/condaenv/compiler_compat -Wno-unused-result -Wsign-compare -DNDEBUG -fwrapv -O2 -Wall -fPIC -O2 -isystem /home/byunkh/.conda/envs/condaenv/include -fPIC -O2 -isystem /home/byunkh/.conda/envs/condaenv/include -fPIC
+
+creating /tmp/tmpq9l8adz7/tmp
+creating /tmp/tmpq9l8adz7/tmp/tmpq9l8adz7
+creating /tmp/tmpq9l8adz7/tmp/tmpq9l8adz7/src.linux-x86_64-3.10
+INFO: compile options: '-DNPY_DISABLE_OPTIMIZATION=1 -I/tmp/tmpq9l8adz7/src.linux-x86_64-3.10 -I/home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/core/include -I/home/byunkh/.conda/envs/condaenv/include/python3.10 -c'
+INFO: gcc: /tmp/tmpq9l8adz7/src.linux-x86_64-3.10/jsrd_part_pymodule.c
+INFO: gcc: /tmp/tmpq9l8adz7/src.linux-x86_64-3.10/fortranobject.c
+INFO: compiling Fortran 90 module sources
+INFO: Fortran f77 compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran f90 compiler: /usr/bin/gfortran -fopenmp -fPIC -O3 -funroll-loops
+Fortran fix compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fopenmp -fPIC -O3 -funroll-loops
+INFO: compile options: '-I/tmp/tmpq9l8adz7/src.linux-x86_64-3.10 -I/home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/core/include -I/home/byunkh/.conda/envs/condaenv/include/python3.10 -c'
+extra options: '-J/tmp/tmpq9l8adz7/ -I/tmp/tmpq9l8adz7/'
+INFO: gfortran:f90: jsrd_part_py.f90
+INFO: compiling Fortran sources
+INFO: Fortran f77 compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran f90 compiler: /usr/bin/gfortran -fopenmp -fPIC -O3 -funroll-loops
+Fortran fix compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fopenmp -fPIC -O3 -funroll-loops
+INFO: compile options: '-I/tmp/tmpq9l8adz7/src.linux-x86_64-3.10 -I/home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/core/include -I/home/byunkh/.conda/envs/condaenv/include/python3.10 -c'
+extra options: '-J/tmp/tmpq9l8adz7/ -I/tmp/tmpq9l8adz7/'
+INFO: gfortran:f90: /tmp/tmpq9l8adz7/src.linux-x86_64-3.10/jsrd_part_py-f2pywrappers2.f90
+INFO: /usr/bin/gfortran -Wall -g -Wall -g -shared /tmp/tmpq9l8adz7/tmp/tmpq9l8adz7/src.linux-x86_64-3.10/jsrd_part_pymodule.o /tmp/tmpq9l8adz7/tmp/tmpq9l8adz7/src.linux-x86_64-3.10/fortranobject.o /tmp/tmpq9l8adz7/jsrd_part_py.o /tmp/tmpq9l8adz7/tmp/tmpq9l8adz7/src.linux-x86_64-3.10/jsrd_part_py-f2pywrappers2.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9 -lgomp -lgfortran -o ./jsrd_part_py.cpython-310-x86_64-linux-gnu.so
+Removing build directory /tmp/tmpq9l8adz7
+
+
+
+Compiling js_getsfe_ft
+
+
+
+Unknown vendor: "gfortran"
+running build
+running config_cc
+INFO: unifing config_cc, config, build_clib, build_ext, build commands --compiler options
+running config_fc
+INFO: unifing config_fc, config, build_clib, build_ext, build commands --fcompiler options
+running build_src
+INFO: build_src
+INFO: building extension "js_getsfe_ft" sources
+INFO: f2py options: []
+INFO: f2py:> /tmp/tmpikb_r_bt/src.linux-x86_64-3.10/js_getsfe_ftmodule.c
+creating /tmp/tmpikb_r_bt/src.linux-x86_64-3.10
+Reading fortran codes...
+	Reading file 'js_getsfe_ft.f90' (format:free)
+Post-processing...
+	Block: js_getsfe_ft
+			Block: js_getsfe
+				Block: js_getsfe_ft
+In: :js_getsfe_ft:js_getsfe_ft.f90:js_getsfe:js_getsfe_ft
+get_useparameters: no module omp_lib info used by js_getsfe_ft
+				Block: get_sfe_findneighbor
+				Block: get_sfe_erf
+				Block: js_getsfe_free
+Post-processing (stage 2)...
+	Block: js_getsfe_ft
+		Block: unknown_interface
+			Block: js_getsfe
+				Block: js_getsfe_ft
+				Block: get_sfe_findneighbor
+				Block: get_sfe_erf
+				Block: js_getsfe_free
+Building modules...
+    Building module "js_getsfe_ft"...
+		Constructing F90 module support for "js_getsfe"...
+		  Variables: sfe mach2 alpha t_ff dum_sf sig_s sig_c
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+		Creating wrapper for Fortran subroutine "js_getsfe_ft"("js_getsfe_ft")...
+            Constructing wrapper function "js_getsfe.js_getsfe_ft"...
+              js_getsfe_ft(larr,darr,x,y,z,vx,vy,vz,dx,den,cs2)
+		Creating wrapper for Fortran function "get_sfe_findneighbor"("get_sfe_findneighbor")...
+            Constructing wrapper function "js_getsfe.get_sfe_findneighbor"...
+              ind0 = get_sfe_findneighbor(x,y,z,x0,y0,z0,[n_cell])
+		Creating wrapper for Fortran function "get_sfe_erf"("get_sfe_erf")...
+            Constructing wrapper function "js_getsfe.get_sfe_erf"...
+              y = get_sfe_erf(x)
+            Constructing wrapper function "js_getsfe.js_getsfe_free"...
+              js_getsfe_free()
+    Wrote C/API module "js_getsfe_ft" to file "/tmp/tmpikb_r_bt/src.linux-x86_64-3.10/js_getsfe_ftmodule.c"
+    Fortran 90 wrappers are saved to "/tmp/tmpikb_r_bt/src.linux-x86_64-3.10/js_getsfe_ft-f2pywrappers2.f90"
+INFO:   adding '/tmp/tmpikb_r_bt/src.linux-x86_64-3.10/fortranobject.c' to sources.
+INFO:   adding '/tmp/tmpikb_r_bt/src.linux-x86_64-3.10' to include_dirs.
+copying /home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/f2py/src/fortranobject.c -> /tmp/tmpikb_r_bt/src.linux-x86_64-3.10
+copying /home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/f2py/src/fortranobject.h -> /tmp/tmpikb_r_bt/src.linux-x86_64-3.10
+INFO:   adding '/tmp/tmpikb_r_bt/src.linux-x86_64-3.10/js_getsfe_ft-f2pywrappers2.f90' to sources.
+INFO: build_src: building npy-pkg config files
+running build_ext
+INFO: customize UnixCCompiler
+INFO: customize UnixCCompiler using build_ext
+INFO: customize Gnu95FCompiler
+INFO: Found executable /usr/bin/gfortran
+INFO: customize Gnu95FCompiler using build_ext
+INFO: building 'js_getsfe_ft' extension
+INFO: compiling C sources
+INFO: C compiler: gcc -pthread -B /home/byunkh/.conda/envs/condaenv/compiler_compat -Wno-unused-result -Wsign-compare -DNDEBUG -fwrapv -O2 -Wall -fPIC -O2 -isystem /home/byunkh/.conda/envs/condaenv/include -fPIC -O2 -isystem /home/byunkh/.conda/envs/condaenv/include -fPIC
+
+creating /tmp/tmpikb_r_bt/tmp
+creating /tmp/tmpikb_r_bt/tmp/tmpikb_r_bt
+creating /tmp/tmpikb_r_bt/tmp/tmpikb_r_bt/src.linux-x86_64-3.10
+INFO: compile options: '-DNPY_DISABLE_OPTIMIZATION=1 -I/tmp/tmpikb_r_bt/src.linux-x86_64-3.10 -I/home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/core/include -I/home/byunkh/.conda/envs/condaenv/include/python3.10 -c'
+INFO: gcc: /tmp/tmpikb_r_bt/src.linux-x86_64-3.10/js_getsfe_ftmodule.c
+INFO: gcc: /tmp/tmpikb_r_bt/src.linux-x86_64-3.10/fortranobject.c
+INFO: compiling Fortran 90 module sources
+INFO: Fortran f77 compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran f90 compiler: /usr/bin/gfortran -fopenmp -fPIC -O3 -funroll-loops
+Fortran fix compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fopenmp -fPIC -O3 -funroll-loops
+INFO: compile options: '-I/tmp/tmpikb_r_bt/src.linux-x86_64-3.10 -I/home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/core/include -I/home/byunkh/.conda/envs/condaenv/include/python3.10 -c'
+extra options: '-J/tmp/tmpikb_r_bt/ -I/tmp/tmpikb_r_bt/'
+INFO: gfortran:f90: js_getsfe_ft.f90
+INFO: compiling Fortran sources
+INFO: Fortran f77 compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran f90 compiler: /usr/bin/gfortran -fopenmp -fPIC -O3 -funroll-loops
+Fortran fix compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fopenmp -fPIC -O3 -funroll-loops
+INFO: compile options: '-I/tmp/tmpikb_r_bt/src.linux-x86_64-3.10 -I/home/byunkh/.conda/envs/condaenv/lib/python3.10/site-packages/numpy/core/include -I/home/byunkh/.conda/envs/condaenv/include/python3.10 -c'
+extra options: '-J/tmp/tmpikb_r_bt/ -I/tmp/tmpikb_r_bt/'
+INFO: gfortran:f90: /tmp/tmpikb_r_bt/src.linux-x86_64-3.10/js_getsfe_ft-f2pywrappers2.f90
+INFO: /usr/bin/gfortran -Wall -g -Wall -g -shared /tmp/tmpikb_r_bt/tmp/tmpikb_r_bt/src.linux-x86_64-3.10/js_getsfe_ftmodule.o /tmp/tmpikb_r_bt/tmp/tmpikb_r_bt/src.linux-x86_64-3.10/fortranobject.o /tmp/tmpikb_r_bt/js_getsfe_ft.o /tmp/tmpikb_r_bt/tmp/tmpikb_r_bt/src.linux-x86_64-3.10/js_getsfe_ft-f2pywrappers2.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9 -lgomp -lgfortran -o ./js_getsfe_ft.cpython-310-x86_64-linux-gnu.so
+Removing build directory /tmp/tmpikb_r_bt
