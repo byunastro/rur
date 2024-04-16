@@ -29,10 +29,11 @@ MODULE io_dice
     	CHARACTER, DIMENSION(48) :: unused
     END TYPE htype
 
-    !! GET PART & GRAV
-    INTEGER(KIND=4) ncpu, nsnap, npart_tot,ncell_tot, ndim, ngridmax
+    !! GET snapshots basic info
+    INTEGER(KIND=4) ncpu, nsnap, npart_tot, ncell_tot, ndim, ngridmax
     CHARACTER(LEN=1000) repo
 
+    !! GET AMR & GRAV
     REAL(KIND=4), DIMENSION(:,:), ALLOCATABLE :: g_pos, g_vel, g_force
     REAL(KIND=4), DIMENSION(:), ALLOCATABLE :: g_mm, g_phi
     INTEGER(KIND=4), DIMENSION(:), ALLOCATABLE :: g_id, g_type 
@@ -192,7 +193,7 @@ CONTAINS
     j = 1
     DO i=1, ncpu
       WRITE(domnum, '(I5.5)') i
-      fdum = TRIM(repo)//'/snapshots/output_'//TRIM(snum)//'/part_'//TRIM(snum)//'.out'//TRIM(domnum)
+      fdum = TRIM(repo)//'/output_'//TRIM(snum)//'/part_'//TRIM(snum)//'.out'//TRIM(domnum)
 
       OPEN(UNIT=10, FILE=fdum, FORM='unformatted', STATUS='OLD')
       READ(10); READ(10); READ(10) npdum; READ(10)
@@ -275,7 +276,7 @@ CONTAINS
     WRITE(snum, '(I5.5)') nsnap
     DO i=1, ncpu
       WRITE(domnum, '(I5.5)') i
-      fdum = TRIM(repo)//'/snapshots/output_'//TRIM(snum)//'/part_'//TRIM(snum)//'.out'//TRIM(domnum)
+      fdum = TRIM(repo)//'/output_'//TRIM(snum)//'/part_'//TRIM(snum)//'.out'//TRIM(domnum)
 
       OPEN(UNIT=10, FILE=fdum, FORM='unformatted', STATUS='OLD')
       READ(10); READ(10); READ(10) np
@@ -315,8 +316,7 @@ CONTAINS
     logical :: ok
     CHARACTER*(1000) fdum_grav,fdum_amr, domnum, snum
     twotondim = 2**ndim
-    write(*,*) 'get_grav_tot'
-    write(*,*) twotondim
+
     ALLOCATE(ncell(1:ncpu))
     ncell = 0
     WRITE(snum, '(I5.5)') nsnap

@@ -14,7 +14,6 @@ from rur.io_ramses import io_ramses
 from rur.config import *
 from rur import utool
 from rur.utool import *
-from rur.io_dice import io_dice
 import numpy as np
 import warnings
 import glob
@@ -1487,6 +1486,197 @@ class RamsesSnapshot(object):
             if (timer.verbose >= 1):
                 print('CPU list already satisfied.')
 
+    def _read_grav(icpu:int, snap_kwargs:dict, amr_kwargs:dict, legacy:bool, cell=None, nsize=None, cursor=None, address=None, shape=None):
+        # 0) From snapshot
+
+        repo = snap_kwargs['repo']
+        iout = snap_kwargs['iout']
+        ncpu = amr_kwargs['ncpu']
+        dtype = snap_kwargs['dtype']
+        target_fields = snap_kwargs['names']
+
+        nboundary = amr_kwargs['nboundary']
+        nlevelmax = amr_kwargs['nlevelmax']
+        ndim = amr_kwargs['ndim']
+        twotondim = amr_kwargs['twotondim']
+        skip_amr = amr_kwargs['skip_amr']
+
+        # 1) Read headers
+        grav_fname = f"{repo}/output_{iout:05d}/grav_{iout:05d}.out{icpu:05d}"
+        f_grav = FortranFile(grav_fname, mode='r')
+        f_grav.skip_records(1)
+        ndim1, = f_grav.read_ints()
+        output_particle_density = ndim1==ndim+2
+        f_grav.skip_records(2)
+        skip_grav = twotondim*(2+ndim) if output_particle_density else twotondim*(1+ndim)
+        
+        amr_fname = f"{repo}/output_{iout:05d}/amr_{iout:05d}.out{icpu:05d}"
+        sequential=True
+        if(cell is None): sequential=False
+        if(nsize is None): nsize = _calc_ncell(amr_fname, amr_kwargs)
+        f_amr = FortranFile(amr_fname, mode='r')
+        f_amr.skip_records(21)
+        numbl = f_amr.read_ints()
+        ngridfile = numbl.reshape(nlevelmax, ncpu+nboundary).T
+        f_amr.skip_records(7)
+        if nboundary>0: f_amr.skip_records(3)
+        if(cursor is None): cursor = 0
+        if(legacy)or(address is None):
+            if(cell is None): cell = np.empty(nsize, dtype=dtype)
+            pointer = cell[cursor:cursor+nsize].view() if(sequential) else cell
+            icursor = 0 if(sequential) else cursor
+        else:
+            exist = shared_memory.SharedMemory(name=address)
+            cell = np.ndarray(shape=shape, dtype=dtype, buffer=exist.buf)
+            pointer = cell[cursor:cursor+nsize].view()
+            icursor=0
+        
+        # 2) Level by Level
+        # Loop over levels
+        for ilevel in range(nlevelmax):
+            ncpu_befo = icpu-1
+            ncpu_afte = ncpu-icpu
+            ncache_befo = np.count_nonzero(ngridfile[:ncpu_befo, ilevel])
+            ncache = ngridfile[icpu-1, ilevel]
+            ncache_afte = np.count_nonzero(ngridfile[icpu:, ilevel])
+
+            # Skip jcpu<icpu
+            f_amr.skip_records((3+skip_amr)*ncache_befo)
+            f_grav.skip_records(2*ncpu_befo + skip_grav*ncache_befo)
+            # Now jcpu==icpu
+            f_grav.skip_records(2)
+            if(ncache>0):
+                f_amr.skip_records(3)
+                x = readorskip_real(f_amr, np.float64, 'x', target_fields, add=oct_offset[:, 0].reshape(twotondim, 1) * 0.5**(ilevel+1))
+                y = readorskip_real(f_amr, np.float64, 'y', target_fields, add=oct_offset[:, 1].reshape(twotondim, 1) * 0.5**(ilevel+1))
+                z = readorskip_real(f_amr, np.float64, 'z', target_fields, add=oct_offset[:, 2].reshape(twotondim, 1) * 0.5**(ilevel+1))
+                f_amr.skip_records(2*ndim + 1) # Skip father index & nbor index
+                # Read son index to check refinement
+                ileaf = f_amr.read_arrays(twotondim) == 0
+                f_amr.skip_records(2*twotondim) # Skip cpu, refinement map
+                icell = np.count_nonzero(ileaf)
+                # Allocate gravity variables
+                grav_vars = np.empty((twotondim, ncache), dtype='f8')
+
+                # Read grav variables
+                for j in range(twotondim):
+                    if output_particle_density: f_grav.skip_records(1)
+                    grav_vars[j]  = f_grav.read_reals()
+                    f_grav.skip_records(ndim)
+
+                # Merge amr & grav data
+                if True in ileaf:
+                    if('x' in target_fields): pointer[icursor : icursor+icell]['x']       = x[ileaf]
+                    if('y' in target_fields): pointer[icursor : icursor+icell]['y']       = y[ileaf]
+                    if('z' in target_fields): pointer[icursor : icursor+icell]['z']       = z[ileaf]
+                    pointer[icursor : icursor+icell]['pot']     = grav_vars[ileaf]
+                    pointer[icursor : icursor+icell]['level']   = ilevel+1
+                    pointer[icursor : icursor+icell]['cpu']     = icpu
+
+                    icursor += icell
+                    cursor += icell
+            # Skip jcpu>icpu
+            f_amr.skip_records((3+skip_amr)*ncache_afte)
+            f_grav.skip_records(2*ncpu_afte + skip_grav*ncache_afte)
+        f_amr.close()
+        f_grav.close()
+        if(sequential):
+            return cursor
+        if(legacy):
+            return cell[:cursor]
+        exist.close()
+    
+
+    def read_grav_py(self, target_fields: Iterable = None, nthread: int = 8):
+        # 1) Read AMR params
+        sequential = nthread == 1
+        fname = f"{self.snap_path}/output_{self.iout:05d}/amr_{self.iout:05d}.out00001"
+        with FortranFile(fname, mode='r') as f:
+            ncpu, = f.read_ints()
+            ndim, = f.read_ints()
+            f.skip_records(1)
+            nlevelmax, = f.read_ints()
+            f.skip_records(1)
+            nboundary, = f.read_ints()
+        amr_kwargs = {
+            'nboundary': nboundary, 'nlevelmax': nlevelmax, 'ndim': ndim,
+            'ncpu': ncpu, 'twotondim': 2 ** ndim, 'skip_amr': 3 * (2 ** ndim + ndim) + 1}
+        cpulist = np.arange(self.params['ncpu']) + 1
+        # 2) Set dtype
+        formats = ['f8'] * self.params['ndim'] + ['i4'] * 2
+        # names = list(dim_keys[:self.params['ndim']]) + self.grav_names + ['level', 'cpu']
+        names = list(dim_keys[:self.params['ndim']]) + ['level', 'cpu']
+        formats.insert(-2, "f8")
+        names.insert(-2, "pot")
+        if target_fields is not None:
+            if 'cpu' not in target_fields:
+                target_fields = np.append(target_fields, 'cpu')
+            if 'level' not in target_fields:
+                target_fields = np.append(target_fields, 'level')
+            target_idx = np.where(np.isin(names, target_fields))[0]
+            formats = [formats[idx] for idx in target_idx]
+            names = [names[idx] for idx in target_idx]
+            dtype = [(nm, fmt) for nm, fmt in zip(names, formats)]
+        else:
+            dtype = np.format_parser(formats=formats, names=names, titles=None).dtype
+
+        # 3) Calculate total number of cells
+        if (timer.verbose > 0):
+            print("Allocating Memory...")
+            ref = time.time()
+        if (sequential):
+            ncell_tot = 0
+            sizes = np.zeros(len(cpulist), dtype=np.int32)
+            for i, icpu in enumerate(cpulist):
+                fname = f"{self.snap_path}/output_{self.iout:05d}/amr_{self.iout:05d}.out{icpu:05d}"
+                sizes[i] = _calc_ncell(fname, amr_kwargs)
+            ncell_tot = np.sum(sizes)
+            cell = np.empty(ncell_tot, dtype=dtype)
+        else:
+            files = [f"{self.snap_path}/output_{self.iout:05d}/amr_{self.iout:05d}.out{icpu:05d}" for icpu in cpulist]
+            signal.signal(signal.SIGTERM, signal.SIG_DFL)
+            with Pool(processes=nthread) as pool:
+                sizes = pool.starmap(_calc_ncell, [(fname, amr_kwargs) for fname in files])
+            signal.signal(signal.SIGTERM, self.terminate)
+            sizes = np.asarray(sizes, dtype=np.int32)
+            cursors = np.cumsum(sizes) - sizes
+            cell = np.empty(np.sum(sizes), dtype=dtype)
+            if (not self.alert):
+                atexit.register(self.flush, msg=True, parent='[Auto]')
+                signal.signal(signal.SIGINT, self.terminate)
+                signal.signal(signal.SIGPIPE, self.terminate)
+                self.alert = True
+            self.cell_mem = shared_memory.SharedMemory(name=self.make_shm_name('cell'), create=True, size=cell.nbytes)
+            self.memory.append(self.cell_mem)
+            cell = np.ndarray(cell.shape, dtype=np.dtype(dtype), buffer=self.cell_mem.buf)
+        if (timer.verbose > 0): print(f"Done ({time.time() - ref:.3f} sec)")
+
+        snap_kwargs = {
+            'grav_names': self.grav_names, 'repo': self.snap_path, 'iout': self.iout,
+            'dtype': dtype, 'names': names}
+        
+        # 4) Read data
+        if (sequential):
+            cursor = 0
+            iterobj = tqdm(enumerate(cpulist), total=len(cpulist), desc=f"Reading cells") if (
+                        timer.verbose >= 1) else enumerate(cpulist)
+            for i, icpu in iterobj:
+                cursor = _read_grav(icpu, snap_kwargs, amr_kwargs, cell=cell, nsize=sizes[i], cursor=cursor,
+                                    address=None, shape=None)
+            cell = cell[:cursor]
+        else:
+            signal.signal(signal.SIGTERM, signal.SIG_DFL)
+            with Pool(processes=nthread) as pool:
+                async_result = [pool.apply_async(_read_grav, (
+                icpu, snap_kwargs, amr_kwargs, None, size, cursor, self.cell_mem.name, cell.shape)) for
+                                icpu, size, cursor in zip(cpulist, sizes, cursors)]
+                iterobj = tqdm(async_result, total=len(async_result), desc=f"Reading cells") if (
+                            timer.verbose >= 1) else async_result
+                for r in iterobj:
+                    r.get()
+            signal.signal(signal.SIGTERM, self.terminate)
+        return cell
+
     def read_ripses(self, target_fields=None, cpulist=None):
         """Reads ripses output data from current box.
 
@@ -1811,7 +2001,28 @@ class RamsesSnapshot(object):
             self.bound_cell = np.array([0], dtype='i4')
         self.flush(msg=False, parent='[clear]')
         readr.close()
-
+    def clear_shm(self, clean=True):
+        shms = glob.glob(f'/dev/shm/rur*')
+        if(len(shms)>0):
+            shms = [shm.split('/')[-1] for shm in shms]
+            olds = []
+            for shm in shms:
+                try: _, _, _, fuid, fdate, _ = shm.split('_')
+                except: _, _, _, fuid, fdate, _, _ = shm.split('_')
+                if(f'u{os.getuid()}' == fuid):
+                    date_diff = datetime.datetime.now() - datetime.datetime.strptime(fdate, '%Y%m%d')
+                    if(date_diff.days>=7):
+                        olds.append(shm)
+            if(len(olds)>0):
+                total_size = np.sum([os.path.getsize(f"/dev/shm/{shm}") for shm in olds])
+                if(not clean): print(f"Warning! Found {len(olds)} old shared memory ({total_size/(1024**3):.2f} GB)")
+                for old in olds:
+                    if(not clean): print(f" > `/dev/shm/{old}`")
+                    else:
+                        size = os.path.getsize(f"/dev/shm/{old}")/(1024**3)
+                        os.remove(f"/dev/shm/{old}")
+                        print(f"Removed: `/dev/shm/{old}` ({size:.2f} GB)")
+                if(not clean): print("\nIf you want to remove them, run `snap.clear_shm()`")
     def _read_nstar(self):
         part_file = FortranFile(self.get_path('part', 1))
         part_file.skip_records(4)
@@ -2967,18 +3178,23 @@ def quad_to_f16(by):
     significand = np.float128((asint & ((1 << 112) - 1)) | (1 << 112))
     return sign * significand * 2.0 ** np.float128(exponent - 112)
 
+from rur.io_dice import io_dice
+
 class dice_utils():
-    def __init__(self, repo='', num_thread=1):
+    def __init__(self, iout,repo='', num_thread=1):
         ##-----
         ## General Settings
         ##-----
         self.num_thread = int(num_thread)
         self.repo = repo
         self.ncpu = 1
+        self.iout = iout
+        self.snap_path = repo
+        self.params = {}
 
-
-    def get_part(self, n_snap):
-        info = self.get_info(n_snap)
+    def get_part(self):
+        n_snap = self.iout
+        info = self.get_info()
         io_dice.ncpu = info['ncpu']
         io_dice.repo = self.repo.ljust(1000)
         io_dice.nsnap = np.int32(n_snap)
@@ -2995,7 +3211,8 @@ class dice_utils():
 
         return pos, vel, mm, id, tt
     
-    def get_grav(self, n_snap):
+    def get_grav(self):
+        n_snap = self.iout
         info = self.get_info(n_snap)
         io_dice.ncpu = info['ncpu'] 
         io_dice.ndim = info['ndim']
@@ -3011,15 +3228,17 @@ class dice_utils():
 
         return phi, force
     
-    def get_info(self, n_snap):
+    def get_info(self):
         ##-----
         ## rd info
         ##-----
         warnings.filterwarnings("ignore", message="Input line 7 contained no data")
-        
-        fname = self.repo + "/snapshots/output_%0.5d"%n_snap + "/info_%0.5d"%n_snap + ".txt"
+        n_snap = self.iout
+        fname = self.repo + "/output_%0.5d"%n_snap + "/info_%0.5d"%n_snap + ".txt"
 
-        fdata = np.loadtxt(fname, dtype=object, max_rows=18, delimiter = '=')
+        fdata_run = np.loadtxt(fname, dtype=object, max_rows=6, delimiter = '=')
+        fdata_phy = np.loadtxt(fname, dtype=object, skiprows=7, max_rows=11, delimiter = '=')
+        fdata = np.concatenate([fdata_run,fdata_phy], axis=0)
 
         info = {'ncpu':0, 'ndim':0, 'levmin':0, 'levmax':0, 'ngridmax':0, 'T':0, 'boxlen':0,  
                 'unit_l':0, 'unit_d':0, 'unit_T2':0, 'nH':0, 'unit_t':0, 'kms':0, 'unit_m':0}
@@ -3040,7 +3259,6 @@ class dice_utils():
         info['kms'] = info['unit_l']/info['unit_t']/1e5
         info['unit_m'] = info['unit_d'] * info['unit_l']**3
         return info
-
 
 
         
