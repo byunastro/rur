@@ -61,7 +61,7 @@ class DiceIC:
             # unit_m = 1 solar mass /h
             struct_array['m'] = mm[ind] * 1e10
         io_dice.read_gadget_deallocate()
-        return struct_array[36:]
+        return struct_array
     
 def plotimages(component, lbox, vmin1=None, vmax1=None, vmin2=None, vmax2=None, dpi=150):
     fig, axes = plt.subplots(ncols=2, figsize=(9,4))
