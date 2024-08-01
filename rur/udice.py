@@ -189,3 +189,40 @@ def center_of_mass(x,y,z, mass):
     center_y = np.sum(mass * y) / total_mass
     center_z = np.sum(mass * z) / total_mass
     return np.array([center_x, center_y, center_z])
+
+def rotation(array1, array2, theta, type='rad'):
+    if type == 'deg':
+        theta *= np.pi/ 180
+    new_array1 = np.cos(theta) * array1 - np.sin(theta) * array2
+    new_array2 = np.sin(theta) * array1 + np.cos(theta) * array2
+    return new_array1, new_array2
+
+def Ang_Rot(M,
+            X,Y,Z,
+            VX,VY,VZ,
+            R_low, R_upp
+            ):
+    
+    ang_x = (Y*VZ - Z*VY) * M
+    ang_y = (Z*VX - X*VZ) * M
+    ang_z = (X*VY - Y*VX) * M
+    
+    rotsort = (R_low<np.sqrt(np.square(X)+np.square(Y)+np.square(Z)))*\
+                (np.sqrt(np.square(X)+np.square(Y)+np.square(Z))<R_upp)
+    
+    param = [np.median(ang_x[rotsort]),np.median(ang_y[rotsort]),np.median(ang_z[rotsort])]
+
+    a, b, c = param[0], param[1], param[2]
+    ab = np.sqrt(np.square(a)+np.square(b))
+    
+    Tht_xy = -1 * np.arctan2(a,b)
+    Tht_yz = -1 * np.arctan2(ab,c)
+    
+    y_mid,x_new = rotation(Y,X,Tht_xy)
+    z_new,y_new = rotation(Z,y_mid,Tht_yz)
+
+    vy_mid,vx_new = rotation(VY,VX,Tht_xy)
+    vz_new,vy_new = rotation(VZ,vy_mid,Tht_yz)
+
+    return  x_new, y_new, z_new,\
+            vx_new,vy_new,vz_new, param
