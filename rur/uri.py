@@ -3199,23 +3199,6 @@ class dice_utils():
 
         return pos, vel, mm, id, tt
     
-    def get_grav(self):
-        n_snap = self.iout
-        info = self.get_info(n_snap)
-        io_dice.ncpu = info['ncpu'] 
-        io_dice.ndim = info['ndim']
-        io_dice.ngridmax = info['ngridmax']
-        io_dice.repo = self.repo.ljust(1000)
-        io_dice.nsnap = np.int32(n_snap)
-
-        io_dice.get_grav()
-        phi = np.array(io_dice.g_phi, dtype='<f8')
-        force = np.array(io_dice.g_force, dtype='<f8')
-
-        io_dice.get_grav_deallocate()
-
-        return phi, force
-    
     def get_info(self):
         ##-----
         ## rd info

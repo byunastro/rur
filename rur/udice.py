@@ -224,5 +224,4 @@ def Ang_Rot(M,
     vy_mid,vx_new = rotation(VY,VX,Tht_xy)
     vz_new,vy_new = rotation(VZ,vy_mid,Tht_yz)
 
-    return  x_new, y_new, z_new,\
-            vx_new,vy_new,vz_new, param
+    return  x_new, y_new, z_new,vx_new,vy_new,vz_new, param
